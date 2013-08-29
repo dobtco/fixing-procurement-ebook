@@ -1,7 +1,7 @@
 ---
 edition:    0.1
 language:   en
-author:     Your Name
-title:      Your Book Title
+author:     Department of Better Technology
+title:      "How to fix procurement: an ambitious, 7-part guide"
 cover:      assets/images/cover.jpg
 stylesheet: assets/stylesheets/default.css

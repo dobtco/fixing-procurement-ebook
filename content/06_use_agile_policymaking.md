@@ -10,11 +10,11 @@ And our natural instinct is to gather a commission of those frustrated people to
 
 Does this sound crazy to anyone else?
 
-It's like [waterfall](http://en.wikipedia.org/wiki/Waterfall_model) software development, but without any of the quality checks. We imagine what kind of policies might work and then implement them, never investigating whether or not those policies created the desired outcomes we were seeking.
+It's like waterfall software development[^10], but without any of the quality checks. We imagine what kind of policies might work and then implement them, never investigating whether or not those policies created the desired outcomes we were seeking.
 
 As we move forward in figuring out what to do with procurement, I'd like to suggest that we avoid this model for crafting new policy and techniques. That is the level of thinking that created our significant procurement problems. Instead of using the waterfall technique of policymaking that got us into this mess, let's be agile policy scientists and get us out.
 
-That's the battle plan for [Procure.io](http://procure.io):
+That's the battle plan for Procure.io:
 
 1. Find governmental bodies that are willing to participate in a test.
 2. Craft a low-risk test for that body.
@@ -25,11 +25,4 @@ The implications of working this way are significant because it allows for contr
 
 We're not going to solve IT procurement problems by sitting around the table drafting documents and signing petitions. We're going to solve them by conducting tests, measuring outcomes, and implementing change based on the results.
 
-
-
-
-
-
-
-
-
+[^10]: [en.wikipedia.org/wiki/Waterfall_model](http://en.wikipedia.org/wiki/Waterfall_model)

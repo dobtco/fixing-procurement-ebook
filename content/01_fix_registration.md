@@ -2,9 +2,7 @@
 
 The way government purchases information technology is profoundly broken -- leading to federal websites and information technology systems to sometimes cost as much as an entire scientific initiative to map the human brain. And it's easy to complain about how much these websites cost, or about how their high prices and lengthy procurement processes don't impact quality or user experience, but it's not so easy to be thoughtful about how fix it. So this week, we thought we'd talk specifically about how to fix the procurement process.
 
-Many organizations are interested in shifting the policy and regulations around to make the process easier and less cumbersome. Our own product, Procure.io, helps focus down on making simple acquisitions easy. But before you get into acquisition policy and technology, another one has to get fixed up the chain: business registration processes. Here's what happened when Jed Wood, our colleague on Project RFP-EZ, catalogued his experience trying to register his business just to be eligible to be awarded contracts:
-
-[https://speakerdeck.com/jedwood/me-and-sam](https://speakerdeck.com/jedwood/me-and-sam)
+Many organizations are interested in shifting the policy and regulations around to make the process easier and less cumbersome. Our own product, Procure.io, helps focus down on making simple acquisitions easy. But before you get into acquisition policy and technology, another one has to get fixed up the chain: business registration processes. Here's what happened when Jed Wood, our colleague on Project RFP-EZ, catalogued his experience trying to register his business just to be eligible to be awarded contracts: [go.dobt.co/sam-reg-process](http://go.dobt.co/sam-reg-process)
 
 It provides a glimpse of the process and the problem: he didn't make it through. It's due to poor communication: e.g. you register an "entity" not a "business" in Sam.gov, and you're asked if arcane sections of the Federal Acquisition Regulation apply to you without links to the regulations for you to read. And it's due to poor technology: even though Jed eventually filled out his form, the system still would not allow him to register for reasons unknown. This registration process is important -- it's not just something the federal government uses. Local governments use this central contractor registry to vet their own vendors, as do private companies: Microsoft uses this registry to vet its own suppliers.[^1]
 
@@ -18,4 +16,4 @@ The first step of that is increasing the pool of "eligible vendors" -- because g
 
 That starts at the Small Business Administration at the federal level, and your local business development enterprise organization at the local level. Step one in solving this problem is by streamlining the user experience via software. Turn paper forms into digital ones. Make the language look great. Every place there is a PDF file and/or a fax machine in the process, there is likely room for innovation. Once these simple barriers are removed from the process, you'll increase the contractor pool and ensure more diversity in the procurement ecosystem.
 
-[^1]: https://www.microsoft.com/about/companyinformation/procurement/en/us/register.aspx
+[^1]: [go.dobt.co/ms-procurement](http://go.dobt.co/ms-procurement)

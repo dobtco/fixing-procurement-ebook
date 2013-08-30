@@ -2,7 +2,7 @@
 
 It's easy to get distracted with the nuts and bolts of procurement. To look at the system, so broken and inefficient, and want to fix it for its own sake. But imagine a politician -- say, a candidate for mayor -- running for office. What do you think the chances are that our candidate will win if she runs on a platform of procurement reform?
 
-While she'll certainly win the allegiance of this blog and its (literally) dozens of readers, I'm not sure we're going to see any mayoral candidates giving speeches about increasing simple acquisition thresholds, reforming set-aside programs so that they actually work the way they're intended to, or "creating a 21st century acquisition workforce".[^f1] It's farcical.
+While she'll certainly win the allegiance of this blog and its (literally) dozens of readers, I'm not sure we're going to see any mayoral candidates giving speeches about increasing simple acquisition thresholds, reforming set-aside programs so that they actually work the way they're intended to, or "creating a 21st century acquisition workforce".[^9] It's farcical.
 
 Nobody buys a house based on the quality of its plumbing and wiring, and nobody will elect a government based on the quality of its procurement strategy. The next step in fixing procurement is understanding that fixing procurement isn't about procurement. It's about the things that come with it. The opportunities that get created when it does get fixed.
 
@@ -16,4 +16,4 @@ But when you talk to government about "procurement reform" they don't see these 
 
 Procurement reform is a huge opportunity, and the first government to enable the innovators in its own backyard to easily work with the city is bound to have a boom of jobs and convenience. But we, the champions of reform, must be about the jobs and convenience, not about the reform itself. It's not about the reforms, its about the outcomes.
 
-[^f1]: Discussed in depth in this [GAO Report](http://www.gao.gov/new.items/d06533sp.pdf)
+[^9]: Discussed in depth in this GAO Report: [go.dobt.co/gao-supplier-report](http://go.dobt.co/gao-supplier-report)

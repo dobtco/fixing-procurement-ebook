@@ -18,7 +18,7 @@ body {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	
+
 }
 a {
 	color: #1A4882;
@@ -41,4 +41,5 @@ div#cover {
 }
 div#cover img {
 	max-height: 400px;
+	display: none;
 }

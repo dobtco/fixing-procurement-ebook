@@ -14,7 +14,7 @@ It's like waterfall software development[^10], but without any of the quality ch
 
 As we move forward in figuring out what to do with procurement, I'd like to suggest that we avoid this model for crafting new policy and techniques. That is the level of thinking that created our significant procurement problems. Instead of using the waterfall technique of policymaking that got us into this mess, let's be agile policy scientists and get us out.
 
-That's the battle plan for Procure.io:
+That's the battle plan for Screendoor.io:
 
 1. Find governmental bodies that are willing to participate in a test.
 2. Craft a low-risk test for that body.

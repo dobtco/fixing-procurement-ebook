@@ -1,4 +1,4 @@
-#Introduction
+## Introduction
 
 In 2009, I was director of Sunlight Labs at the Sunlight Foundation -- a group of developers that worked on open government projects at the federal level. At the same time, Barack Obama had just been elected to his first term, and announced the American Reinvestment and Recovery act -- a multi-billion dollar "bailout" of the American economy. 
 
@@ -18,16 +18,16 @@ My team included Adam Becker (now my partner at the Department of Better Technol
 
 The project we shipped was called RFP-EZ, and it does three things:
 
-1. Makes it easy for government to write RFPs that people could understand and got great results.
+1. Makes it easy for government to write RFPs that people can understand.
 
 2. Makes it easy for people to find those RFPs, and to bid on them.
 
-3. Makes it easy for government to sort through the responses to that RFP and select the best one.
+3. Makes it easy for government to sort through the responses to those RFPs and select the best ones.
 
-We worked through the federal bureaucracy over six months, and shipped a product as a pilot. It took five projects, and ran them through both the normal process, and through this new, RFP-EZ process so we could compare the bids and outcomes.
+We worked through the federal bureaucracy over six months, creating a new online platform to do those three things. We took five projects and ran them through both the normal process, and through this new, RFP-EZ process so we could compare the bids and outcomes.
 
 The result? Bids through RFP-EZ were 30% lower than through the normal means. With just these five projects, government enlarged its small business pool by 250 new businesses. The bids came in faster, and there were more of them, and the bids on-average, tended to vary less (possibly because of well-written RFPs) than through the normal way.
 
-The United States Federal Government isn't the only organization with a "procurement problem." Every large enterprise needs help figuring out how best to engage with external suppliers. And now that we are starting the Department of Better Technology, we thought we'd share the lessons we learned from RFP-EZ. The following essays are a collection of ideas from our experience: what we did, the mistakes we made, and the things we think need changing. 
+The United States Federal Government isn't the only organization with a "procurement problem". Every large enterprise needs help figuring out how best to engage with external suppliers. And now that we are starting the Department of Better Technology, we thought we'd share the lessons we learned from RFP-EZ. The following essays are a collection of ideas from our experience: what we did, the mistakes we made, and the things we think need changing. 
 
-And if you ever need help, feel free to email us at hello@dobt.co
+If you have any questions or ever need help, you can email us at [hello@dobt.co](mailto:hello@dobt.co).

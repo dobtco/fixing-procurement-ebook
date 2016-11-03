@@ -1,4 +1,4 @@
-## How To Fix Procurement #3: Ask for the Right Stuff
+## Chapter Three: Ask for the Right Stuff
 
 An important lesson if you're a programmer is to take a look at Recovery.gov, which cost $18 million dollars. But *why* did it cost $18 million dollars? For the answer to that, let's take a look at the RFP[^6] and the somewhat-redacted winning technical proposal[^7] written in response. If you're a technologist, you might come to the same conclusion I did: Government is paying a reasonable amount of money for what it's asking. The problem is that it's **asking for the wrong thing**. XML Firewalls? Data-cubing services? Seriously?
 

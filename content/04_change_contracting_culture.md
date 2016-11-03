@@ -1,4 +1,4 @@
-## How To Fix Procurement #4: Change Contracting Officer Culture
+## Chapter Four: Change Contracting Officer Culture
 
 The buck stops at the contracting officer for getting the right deal. They're the ones who select a "most appropriate" vendor, according to the terms of the acquisition, and they're the ones who negotiate prices with that vendor. They sign the final metaphorical checks to the contractors. So why do the people in charge of spending taxpayer dollars use tools that look like this? [http://go.dobt.co/co-software-1](http://go.dobt.co/co-software-1)
 

@@ -1,4 +1,4 @@
-## How To Fix Procurement #5: It's Not About Procurement
+## Chapter Five: It's Not About Procurement
 
 It's easy to get distracted with the nuts and bolts of procurement. To look at the system, so broken and inefficient, and want to fix it for its own sake. But imagine a politician -- say, a candidate for mayor -- running for office. What do you think the chances are that our candidate will win if she runs on a platform of procurement reform?
 

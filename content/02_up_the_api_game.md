@@ -1,4 +1,4 @@
-## How To Fix Procurement #2: Up The API Game
+## Chapter Two: Up The API Game
 
 To date, government APIs have largely been discussed as a method for releasing data to citizens. It stems from the open government's roots in the watchdog movement -- that government data ought to be free, so that it can people can police government. Though most of the time, it's the case that for developers, (who are really the only people who can use APIs,) most government data doesn't really require an API as much as it requires a well thought out, well formatted, and well maintained .csv file. Rarely does government data require cloud based computational capacity to add value to the raw data, and rarely does it grow so big that an API becomes more useful than managing the data locally gets unwieldy.
 

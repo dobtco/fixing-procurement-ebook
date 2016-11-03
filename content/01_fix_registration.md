@@ -1,4 +1,4 @@
-## How To Fix Procurement #1: Fix Registration
+## Chapter One: Fix Registration
 
 Many organizations are interested in shifting the policy and regulations around to make the process easier and less cumbersome. Our own product, Screendoor.io, helps focus down on making simple acquisitions easy. But before you get into acquisition policy and technology, another one has to get fixed up the chain: business registration processes. Here's what happened when Jed Wood, our colleague on Project RFP-EZ, catalogued his experience trying to register his business just to be eligible to be awarded contracts: [go.dobt.co/sam-reg-process](http://go.dobt.co/sam-reg-process). Over 70 steps to go through!
 

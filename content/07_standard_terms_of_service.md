@@ -1,4 +1,4 @@
-## How To Fix Procurement #7: Standardized Terms for Companies That Want Them
+## Chapter Seven: Standardized Terms for Companies That Want Them
 
 What we've discussed so far are projects that involve bidding and sales -- largely customizable IT integrations that come from professional services consultancies. But that's not all that government buys, and it's certainly not the place where the most innovation happens online.
 

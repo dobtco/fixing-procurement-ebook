@@ -1,4 +1,4 @@
-## How To Fix Procurement #6: Use Agile Policymaking
+## Chapter Six: Use Agile Policymaking
 
 One of my favorite quotes is from Albert Einstein:
 

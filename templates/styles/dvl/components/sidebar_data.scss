@@ -1,0 +1,145 @@
+// Sidebar
+
+.sidebar_box {
+  background-color: $lightestGray;
+  border: 1px solid $lightGray;
+  border-radius: $radius;
+  padding: $rhythm * 2 0;
+  hr {
+    margin: $rhythm 0;
+  }
+}
+
+.sidebar_section {
+  margin-bottom: $rhythm * 2;
+  font-size: $fontSmaller;
+  padding: 0 ($rhythm * 2);
+  @include cf();
+  &:last-child {
+    margin: 0;
+  }
+  h4 {
+    font-size: 1rem;
+    line-height: 1;
+    color: $darkestGray;
+    margin-bottom: 0.35rem;
+  }
+}
+
+// Sidebar sections with icons on the left
+
+.sidebar_data {
+  padding: 0;
+  > li {
+    border-bottom: 1px solid $lightGray;
+    padding: ($rhythm * 2);
+    position: relative;
+    &:first-of-type {
+      padding-top: 0;
+    }
+    &:last-of-type {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.sidebar_data_icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: $rhythm * -2.5;
+  width: $rhythm * 5;
+  text-align: center;
+  i {
+    line-height: 1;
+    color: $gray;
+  }
+  @media screen and (min-width: $lapWidth) {
+    width: $rhythm * 5;
+    left: $rhythm * 2;
+    // Account for no top / bottom padding
+    // in first and last sidebar items
+    .sidebar_data li:first-of-type & {
+      margin-top: $rhythm * -3.5;
+    }
+    .sidebar_data li:last-of-type & {
+      margin-top: $rhythm * -1.5;
+    }
+    i {
+      font-size: $rhythm * 5;
+    }
+  }
+}
+
+.sidebar_data_text {
+  margin-left: $lineHeight;
+  @media screen and (min-width: $lapWidth) {
+    margin-left: $rhythm * 8;
+  }
+}
+
+.sidebar_data_label,
+.sidebar_data_value {
+  margin-bottom: $rhythm / 2;
+}
+
+.sidebar_data_label {
+  font-size: $fontSmall;
+  font-weight: $weightBold;
+  @include font_smoothing;
+  color: $darkerGray;
+}
+
+.sidebar_data_value,
+.sidebar_data_details {
+  @include word_break;
+}
+
+.sidebar_data_value {
+  @include cf;
+  color: $darkestGray;
+  form {
+    margin-bottom: $rhythm / 2;
+  }
+}
+
+.sidebar_data_details {
+  font-size: $fontSmaller;
+  color: $darkerGray;
+  @include font_smoothing;
+}
+
+// List of items in
+.sidebar_data_list {
+  a, span {
+    float: left;
+    @include ellipses;
+  }
+  a {
+    width: 46%;
+    margin-right: 4%;
+  }
+  span {
+    width: 50%;
+  }
+}
+
+.sidebar_social {
+  padding: 1rem 1rem 0;
+  @include cf;
+}
+
+.sidebar_submit {
+  padding: 0 $rhythm * 2;
+  margin-bottom: $rhythm * 2;
+  .button {
+    width: 100%;
+  }
+}
+
+.sidebar_submit_hint {
+  text-align: center;
+  font-size: $fontSmallest;
+  margin-top: 0.25rem;
+}

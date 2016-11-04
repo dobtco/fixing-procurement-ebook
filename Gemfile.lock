@@ -1,0 +1,105 @@
+GIT
+  remote: https://github.com/dobtco/dvl-core.git
+  revision: 8d25ad62a8d3f890cba0619345d0ee7f084f97f6
+  specs:
+    dvl-core (0.1.0)
+      activesupport
+      coffee-script
+      sass
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (5.0.0.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    builder (3.2.2)
+    coderay (1.1.1)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
+    concurrent-ruby (1.0.2)
+    eeepub-with-cover-support (0.8.8)
+      builder
+      rubyzip
+    execjs (2.7.0)
+    ffi (1.9.14)
+    formatador (0.2.5)
+    guard (2.14.0)
+      formatador (>= 0.2.4)
+      listen (>= 2.7, < 4.0)
+      lumberjack (~> 1.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-shell (0.7.1)
+      guard (>= 2.0.0)
+      guard-compat (~> 1.0)
+    i18n (0.7.0)
+    kitabu (2.1.0)
+      activesupport
+      eeepub-with-cover-support
+      i18n
+      nokogiri
+      notifier
+      redcarpet
+      rouge (~> 2.0)
+      rubyzip
+      sass
+      sass-globbing
+      thor
+      zip-zip
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
+    lumberjack (1.0.10)
+    method_source (0.8.2)
+    mini_portile2 (2.1.0)
+    minitest (5.9.1)
+    nenv (0.3.0)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
+    notiffany (0.1.1)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
+    notifier (0.5.2)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rb-fsevent (0.9.8)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
+    redcarpet (3.3.4)
+    rouge (2.0.6)
+    ruby_dep (1.5.0)
+    rubyzip (1.2.0)
+    sass (3.4.22)
+    sass-globbing (1.1.5)
+      sass (>= 3.1)
+    shellany (0.0.1)
+    slop (3.6.0)
+    thor (0.19.1)
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    zip-zip (0.3)
+      rubyzip (>= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dvl-core!
+  guard-shell
+  kitabu
+
+BUNDLED WITH
+   1.13.6

@@ -1,0 +1,118 @@
+.button {
+  display: inline-block;
+  margin: 0;
+  // Button height should equal $inputHeight
+  padding: ((($inputHeight - $lineHeight) / 2) - 0.0625rem) ($rhythm * 2);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: $radius;
+  line-height: $lineHeight;
+
+  // allow .button to be applied to other elements, e.g. labels
+  font-weight: $weightNormal;
+
+  @include ellipses;
+  @include button_color($lightGray, $bodyFontColor);
+
+  // Overriding more default <a> styles
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  // Remove the focus outline, since we'll change the background color
+  // on focus instead.
+  &:focus {
+    outline: 0;
+  }
+
+  &.disabled,
+  &[disabled] {
+    opacity: 0.65;
+    cursor: default;
+  }
+
+  &.uppercase {
+    border: 0 !important;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: $fontSmallest;
+  }
+
+  // Buttons with icons
+
+  &.icon_l,
+  &.icon_r {
+    i {
+      font-size: $fontSmall;
+    }
+  }
+
+  &.icon_l i {
+    margin-right: $rhythm;
+  }
+
+  &.icon_r i {
+    margin-left: $rhythm;
+  }
+
+  &.toggle:after {
+    content: "\f0d7";
+    font-family: 'FontAwesome';
+    margin-left: $rhythm;
+    opacity: 0.7;
+  }
+
+  // Colors
+  &.primary {
+    @include button_color($primaryColor, $primaryColorText);
+  }
+
+  &.error {
+    @include button_color($errorColor, $errorColorText);
+  }
+
+  &.secondary {
+    @include button_color($secondaryColor, $secondaryColorText);
+  }
+
+  &.subtle {
+    @include button_color($lightestGray,$darkerGray);
+  }
+
+  // Sizes
+  &.small {
+    padding: $rhythm / 2 $rhythm * 2;
+    font-size: $fontSmall;
+  }
+
+  &.large {
+    height: $largeInputHeight;
+    line-height: $largeInputHeight;
+    padding: 0 1.5rem;
+  }
+
+  &.mini {
+    padding: $rhythm / 2 $rhythm;
+    font-size: $fontSmaller;
+    line-height: $rhythm * 2;
+  }
+
+  &.block {
+    display: block;
+    width: 100%;
+  }
+  &.long {
+    // Long buttons must have an explicit width
+    text-overflow: auto;
+    white-space: normal;
+    font-size: $fontSmall;
+    line-height: $unitlessLineHeight;
+  }
+}
+
+// Ensure label buttons look *exactly like* other buttons
+label.button {
+  @include font_smoothing('off');
+}

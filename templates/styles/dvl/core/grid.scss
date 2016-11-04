@@ -1,0 +1,98 @@
+// Grid container
+// 1. Default gutter width, change if desired
+// 2. Remove `list-style` in case `.grid` is on a <ul> element
+// 3. Hack to remove `inline-block` whitespace - http://cbrac.co/16xcjcl
+
+@mixin grid() {
+  margin: 0;
+  margin-left: - $gutterWidth; // 1
+  padding: 0;
+  list-style: none; // 2
+  font-size: 0; // 3
+  @media screen and (min-width: $lapWidth) {
+    margin-left: - $lapGutterWidth;
+  }
+}
+
+
+// Grid item
+// 1. Default gutter width, change if desired
+// 2. Ensures elements within `.item` start at the top
+// 3. Reset `font-size` back to normal
+
+@mixin col() {
+  display: inline-block;
+  padding-left: $gutterWidth;  // 1
+  vertical-align: top; // 2
+  font-size: 1rem;   // 3
+  width: 100%;
+  @media screen and (min-width: $lapWidth) {
+    padding-left: $lapGutterWidth;
+  }
+}
+
+@mixin col1() { width: $columnWidth * 1; }
+@mixin col2() { width: $columnWidth * 2; }
+@mixin col3() { width: $columnWidth * 3; }
+@mixin col4() { width: $columnWidth * 4; }
+@mixin col5() { width: $columnWidth * 5; }
+@mixin col6() { width: $columnWidth * 6; }
+@mixin col7() { width: $columnWidth * 7; }
+@mixin col8() { width: $columnWidth * 8; }
+@mixin col9() { width: $columnWidth * 9; }
+@mixin col10() { width: $columnWidth * 10; }
+@mixin col11() { width: $columnWidth * 11; }
+@mixin col12() { width: $columnWidth * 12; }
+
+@mixin push1 { margin-left: $columnWidth * 1; }
+@mixin push2 { margin-left: $columnWidth * 2; }
+@mixin push3 { margin-left: $columnWidth * 3; }
+@mixin push4 { margin-left: $columnWidth * 4; }
+@mixin push5 { margin-left: $columnWidth * 5; }
+@mixin push6 { margin-left: $columnWidth * 6; }
+@mixin push7 { margin-left: $columnWidth * 7; }
+@mixin push8 { margin-left: $columnWidth * 8; }
+@mixin push9 { margin-left: $columnWidth * 9; }
+@mixin push10 { margin-left: $columnWidth * 10; }
+@mixin push11 { margin-left: $columnWidth * 11; }
+
+.grid {
+  @include grid;
+}
+
+.item {
+  @include col;
+}
+
+// Widths
+
+@mixin build_grid($prefix: "") {
+  .#{$prefix}one_column     { @include col1; }
+  .#{$prefix}two_columns    { @include col2; }
+  .#{$prefix}three_columns  { @include col3; }
+  .#{$prefix}four_columns   { @include col4; }
+  .#{$prefix}five_columns   { @include col5; }
+  .#{$prefix}six_columns    { @include col6; }
+  .#{$prefix}seven_columns  { @include col7; }
+  .#{$prefix}eight_columns  { @include col8; }
+  .#{$prefix}nine_columns   { @include col9; }
+  .#{$prefix}ten_columns    { @include col10; }
+  .#{$prefix}eleven_columns { @include col11; }
+  .#{$prefix}twelve_columns { @include col12; }
+}
+
+@include build_grid();
+
+@media only screen and (min-width: $lapWidth) {
+  @include build_grid("lap_");
+}
+
+@media only screen and (min-width: $deskWidth) {
+  @include build_grid("desk_");
+}
+
+// Grid styles for when .container is at maximum width
+
+@media only screen and (min-width: ($maxWidth / 0.9)) {
+  @include build_grid("max_");
+}

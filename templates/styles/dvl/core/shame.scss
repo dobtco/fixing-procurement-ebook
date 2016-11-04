@@ -1,0 +1,188 @@
+// Rules
+// 1. If it’s a hack, it goes in shame.css.
+// 2. Document all hacks fully:
+//    - What part of the codebase does it relate to?
+//    - Why was this needed?
+//    - How does this fix it?
+//    - How might you fix it properly, given more time?
+// 3. Do not blame the developer; if they explained why
+//    they had to do it, then their reasons are probably
+//    (hopefully) valid.
+// 4. Try and clean shame.css up when you have some down time.
+//    - Even better, create an issue where you can allocate
+//      some time for it.
+//
+// App-specific hacks are located in app/stylesheets/shame.scss within their respective repo
+
+
+// Deprecated styles in Based.
+
+// Build Helpers
+//
+// I'll be working towards removing all appearance classes
+// like these from the codebase, via three methods:
+//
+// 1. Integrating the styles directly into the components they're applied to.
+//
+// 2. Reworking site-wide defaults so that these tweaks are no longer needed.
+//
+// 3. Converting these into mixins which we can use in the CSS, rather than
+//    bloating the markup.
+//
+// -Josh
+
+@mixin build_helpers($x: "") {
+  @if $x == "" {
+    .desk_show, .lap_show, .desk_show_i, .lap_show_i, .desk_show_ib, .lap_show_ib {
+      display: none !important;
+    }
+  } @else {
+    .#{$x}hide {
+      display: none !important;
+    }
+
+    .#{$x}show {
+      display: block !important;
+    }
+
+    .#{$x}show_i {
+      display: inline !important;
+    }
+
+    .#{$x}show_ib {
+      display: inline-block !important;
+    }
+
+    th.#{$x}show, td.#{$x}show {
+      display: table-cell !important;
+    }
+  }
+}
+
+@include build_helpers();
+
+@media only screen and (min-width: $lapWidth) {
+  @include build_helpers(lap_);
+}
+
+@media only screen and (min-width: $deskWidth) {
+  @include build_helpers(desk_);
+}
+
+.none {
+  color: $darkerGray;
+  @include font_smoothing;
+}
+.yes {
+  color: $successColorText;
+}
+.no {
+  color: $errorColor;
+}
+
+// Legacy styles to remove incrementally
+
+a.smallbold {
+  font-weight: $weightBold;
+  font-size: $fontSmaller;
+}
+
+a.muted {
+  color: $darkerGray;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Convert this to a fieldset
+
+.form_item_two_inputs {
+  > input,
+  .form_item_vert {
+    width: 48.75%;
+    display: inline-block;
+    &:first-child {
+      margin-right: 2.5%;
+    }
+  }
+}
+
+// Remove .form_actions class from other repos
+
+// 2. Make .pagination_center the default, add .pagination_left if necessary
+
+// The most common modifier, used underneath tables of results and the like
+.pagination_centered {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+// Convert checkbox and radio inputs to fieldsets
+
+// Change all .dropdown_headers, they're not semantic.
+// Use .dropdown_menu h3 instead
+
+.dropdown_header {
+  background: $lighterGray;
+  color: $darkestGray;
+  padding: $rhythm $rhythm * 2;
+  font-size: $fontSmaller;
+  text-transform: uppercase;
+  letter-spacing: $letterspaceSmaller;
+  &:first-child {
+    @include border_top_radius($radius - 1);
+  }
+}
+
+// Remove this, refactor .nav_dropdown so that it's not needed
+
+.drop_sng {
+  @include ellipses;
+}
+
+// Keep and rename to .drop_unread
+
+.drop_important {
+  font-weight: $weightBold;
+}
+
+// Remove the need for this
+
+.dropdown_nav {
+  li a,
+  .drop_sng {
+    padding: 0 1.5rem;
+    line-height: 3rem;
+    height: 3rem;
+    @include cf;
+  }
+  .all {
+    .drop_rt_item,
+    .drop_rt_arrow {
+      width: auto;
+      float: none;
+    }
+    .drop_rt_item {
+      max-width: 87%;
+    }
+    .drop_rt_arrow {
+      max-width: 10%;
+    }
+  }
+}
+
+// Switch to filtering sidebar
+
+.sidebar_nav.condensed > li {
+  > a,
+  &.content {
+    padding-top: $rhythm;
+    padding-bottom: $rhythm;
+    padding-left: $rhythm * 2;
+  }
+  .badge {
+    top: $rhythm;
+    right: $rhythm * 2;
+  }
+}

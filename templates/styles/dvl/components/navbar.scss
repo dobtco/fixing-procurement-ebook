@@ -1,0 +1,214 @@
+.navbar {
+  background-color: $navBackground;
+  min-height: $navHeight;
+  z-index: $z_navbar;
+
+  // Add specificity to override text-decoration.
+  .navbar_brand,
+  .navbar_toggle,
+  .navbar_content > ul > li > a {
+    color: rgba($navText,0.8);
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: rgba($navText,0.9);
+    }
+    &:active {
+      color: $navText;
+    }
+  }
+
+  // Override display: inline-block for proper stacking
+  .dropdown_navbar {
+    display: block;
+  }
+}
+
+// Allow for badges and things
+.navbar_content > ul > li {
+  position: relative;
+}
+
+.navbar_content > ul > li > a {
+  font-size: $fontSmall;
+  line-height: $navHeight;
+}
+
+// Bottom margin on mobile navbar buttons
+
+.navbar_content_secondary .button {
+  margin-bottom: $rhythm;
+}
+
+// Modifier for fixed navbar
+.navbar_sticky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navbar_brand {
+  float: left;
+  font-size: $fontSizeH3Mobile;
+  @include font_smoothing;
+  line-height: $navHeight;
+  &:focus {
+    outline: 0;
+    opacity: 0.7;
+  }
+  img {
+    position: relative;
+    display: block;
+    top: 0;
+    max-height: $navHeight - $lineHeight;
+    margin: ($lineHeight / 2) 0;
+  }
+}
+
+// The "hamburger" button
+.navbar_toggle {
+  float: right;
+  font-size: $rhythm * 4;
+  line-height: $navHeight;
+}
+
+.navbar_content_wrapper {
+  clear: both;
+  display: none;
+}
+
+.nav_avatar {
+  width: $rhythm * 4;
+  height: $rhythm * 4;
+  @include avatar;
+  // add some margin for the bottom of the collapsed nav
+  margin-bottom: $rhythm;
+}
+
+.navbar_search_form {
+  input[type=text] {
+    margin: ($navHeight - $inputHeight) / 2 0;
+    padding: auto 0.6rem;
+    background: rgba($black, 0.25);
+    border-color: rgba($white,0.25);
+    color: $navText;
+
+    &:focus {
+      border-color: $darkBlue;
+    }
+  }
+}
+
+// Utility class for hiding/showing content
+.navbar_full_i {
+  display: none;
+}
+
+.navbar_badge {
+  background-color: $alertColor;
+  text-align: center;
+  display: inline-block;
+  padding: 0 $rhythm / 2;
+  height: $rhythm * 2;
+  line-height: $rhythm * 2;
+  font-size: $fontSmallest;
+  border-radius: $rhythm;
+  margin-left: $rhythm;
+}
+
+@media only screen and (min-width: $navBreakpoint) {
+  .navbar_collapsed_i {
+    display: none;
+  }
+
+  .navbar_full_i {
+    display: inline;
+  }
+
+  .navbar_sticky {
+    position: fixed;
+  }
+
+  .nav_avatar {
+    margin-bottom: 0;
+  }
+
+  // Float almost everything. Can't use inline-block because it
+  // gets messed up with line-height
+  .navbar_header,
+  .navbar_content,
+  .navbar_content > ul,
+  .navbar_content > ul > li,
+  .navbar_search_form {
+    float: left;
+  }
+
+  // Margin between brand and items
+  .navbar_brand {
+    margin-right: $rhythm * 3;
+    font-size: $fontSizeH3;
+  }
+
+  .navbar_toggle {
+    display: none;
+  }
+
+  // Show the content
+  .navbar_content_wrapper {
+    display: block;
+    clear: none;
+  }
+
+  .navbar_search_form {
+    padding: 0 $rhythm;
+    width: auto;
+  }
+
+  .navbar_content {
+    // Add X padding to nav items
+    > ul > li > a {
+      padding: 0 $rhythm * 2;
+    }
+
+    // Ensure links take up the full height
+    > ul > li > a {
+      display: block;
+    }
+
+    // Hover styles
+    > ul > li > a:hover,
+    > ul > li > a:focus,
+    > ul > li.active > a {
+      background-color: darken($navBackground,5%);
+    }
+    > ul > li > a:focus {
+      outline: 0;
+    }
+  }
+
+  // Add even more padding to icon items
+  .navbar_icon {
+    padding: 0 $rhythm;
+  }
+
+  // Float the secondary content to the right and handle dropdowns
+  .navbar_content_secondary {
+    float: right;
+    .button {
+      @include marginTopCenter($navHeight, ($rhythm * 4));
+      margin-bottom: 0;
+    }
+    .dropdown_menu {
+      right: 0;
+      left: auto;
+      margin-top: $rhythm / 2;
+    }
+  }
+
+  .navbar_badge {
+    position: absolute;
+    top: $rhythm;
+    right: $rhythm;
+  }
+}

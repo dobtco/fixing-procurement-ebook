@@ -1,0 +1,90 @@
+// Default link styles
+
+// 1. Remove the gray background color from active links in IE 10
+a {
+  background: transparent;
+  color: $linkColor;
+  cursor: pointer;
+  text-decoration: none;
+// Improve readability when focused or hovered in all browsers
+// Address `outline` inconsistency between Chrome and other browsers
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+  &:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+}
+
+a.icon_secondary {
+  text-decoration: none;
+  color: $darkGray;
+  &:hover {
+    color: $darkerGray;
+  }
+}
+
+a.uppercase,
+.button_uppercase {
+  text-transform: uppercase;
+  font-size: $fontSmallest;
+  letter-spacing: $letterspaceSmallest;
+}
+
+.button_uppercase {
+  background: $lighterGray;
+  padding: $rhythm ($rhythm * 2);
+  color: $darkerGray;
+  text-decoration: none;
+  line-height: 1;
+  border-radius: $rhythm * 2;
+  display: inline-block;
+  i {
+    margin-right: $rhythm;
+  }
+  &:hover,
+  &:focus {
+    color: $linkColor;
+    text-decoration: none;
+  }
+  &:active {
+    box-shadow: inset 0 1px 1px rgba(#000,0.05);
+  }
+}
+
+// Plain dropdown toggle links
+
+.dropdown_toggle_link {
+  display: inline-block;
+  padding-right: $rhythm * 2;
+  position: relative;
+  &:after {
+    position: absolute;
+    line-height: 1;
+    @include topCenter($lineHeight, 1rem);
+    right: 0;
+    @include icon('\f0d7');
+  }
+}
+
+// Button tags styled as links
+
+.button_link {
+  font-size: inherit;
+  background: none;
+  padding: 0;
+  line-height: inherit;
+  border: 0;
+  color: $linkColor;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}

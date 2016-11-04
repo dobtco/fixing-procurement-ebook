@@ -1,0 +1,26 @@
+// Headers for standalone pages which do not require navigation
+
+.header_h2_search {
+  @include cf;
+  border-bottom: 1px solid $lightGray;
+  margin-bottom: $lineHeight;
+  .filter_form {
+    margin-bottom: $lineHeight;
+  }
+}
+
+@media screen and (min-width: $lapWidth) {
+  .header_h2_search {
+    h2 {
+      float: left;
+      max-width: 100%;
+      margin-bottom: $rhythm;
+    }
+    .filter_form {
+      float: right;
+      width: 20rem;
+      @include marginTopCenter(($fontLineHeightH2 + $rhythm) , $inputHeight);
+      margin-bottom: 0;
+    }
+  }
+}

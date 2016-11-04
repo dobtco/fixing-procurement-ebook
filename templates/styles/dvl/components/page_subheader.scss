@@ -1,0 +1,60 @@
+.page_subheader {
+  @include cf;
+  margin-bottom: $lineHeight;
+  position: relative;
+  h3, h4 {
+    display: inline;
+    float: left;
+    max-width: 100%;
+    margin-bottom: $rhythm;
+    @media screen and (min-width: $lapWidth) {
+      margin-bottom: 0;
+    }
+  }
+  // Subheader 1
+  h3 {
+    color: $darkerGray;
+  }
+  // Subheader 2 (icon optional)
+  h4 {
+    font-size: 1rem;
+    color: $darkestGray;
+    margin-right: $rhythm;
+    line-height: $inputHeight;
+    i {
+      font-size: 1.5rem;
+      color: $darkestGray;
+      vertical-align: middle;
+      margin-right: $rhythm;
+      line-height: 1.3333rem;
+    }
+  }
+}
+
+.page_subheader_actions {
+  float: left;
+  clear: left;
+  a {
+    float: left;
+    margin-right: $lineHeight;
+    &:last-child,
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  .button.small {
+    margin-top: $rhythm / 2;
+  }
+  .button.mini {
+    margin-top: $rhythm;
+  }
+  @media screen and (min-width: $lapWidth) {
+    float: right;
+    clear: none;
+  }
+}
+
+.page_subheader_link {
+  font-size: $fontSmaller;
+  line-height: $inputHeight;
+}

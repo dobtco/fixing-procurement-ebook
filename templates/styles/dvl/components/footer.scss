@@ -1,0 +1,35 @@
+@import "dvl/core/includes";
+
+.footer {
+  @include cf;
+  padding: $rhythm * 2 0;
+  border-top: 1px solid $lightGray;
+  .styled_select_wrapper {
+    margin-top: $rhythm;
+    @media screen and (min-width: $lapWidth) {
+      float: right;
+      margin-top: $rhythm / 2; // vertically center over two lines
+    }
+  }
+}
+
+.footer_inner {
+  float: left;
+  > span {
+    margin-bottom: $rhythm / 2;
+  }
+  > span,
+  > ul {
+    font-size: $fontSmaller;
+    color: $darkerGray;
+    display: block;
+  }
+  li {
+    display: inline;
+    margin-right: $rhythm * 2;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+

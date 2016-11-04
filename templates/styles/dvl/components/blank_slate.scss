@@ -1,0 +1,49 @@
+// Blank state
+// Displays when no data is present in the current view
+
+
+// Full-page
+
+.blank_slate {
+  text-align: center;
+  padding: $lineHeight;
+  max-width: 35rem;
+  margin: 0 auto;
+  i, h4, span {
+    color: $darkerGray;
+  }
+  // Large icon
+  i {
+    font-size: $rhythm * 10;
+    line-height: 1;
+  }
+  .button i {
+    color: inherit;
+  }
+  // Title, mimics h3 style
+  h4 {
+    margin: $rhythm 0;
+    @include fontH3;
+  }
+  // Subheader
+  span {
+    display: block;
+    // Call to action
+    + .button {
+      margin-top: $rhythm * 2;
+    }
+  }
+}
+
+.blank_slate_alternative {
+  font-size: $fontSmaller;
+  margin-top: $rhythm / 2;
+}
+
+
+// Inline text
+
+.blank_slate_inline {
+  color: $darkerGray;
+  @include font_smoothing;
+}

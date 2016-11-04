@@ -1,0 +1,43 @@
+.pagination {
+  font-size: $fontSmaller;
+  ul {
+    text-align: center;
+    display: inline-block;
+    li {
+      display: inline;
+      a,
+      span {
+        border-radius: 50%;
+        display: block;
+        float: left;
+        margin: 0 $rhythm / 2;
+        line-height: $rhythm * 5;
+        text-decoration: none;
+      }
+      span {
+        width: $rhythm * 3;
+      }
+      a, &:last-child span, &:first-child span {
+        width: $rhythm * 5;
+      }
+      &.active span {
+        width: $rhythm * 5;
+        background-color: rgba($darkBlue,0.5);
+        @include font_smoothing;
+      }
+      a {
+        transition: background-color 100ms ease-out;
+        &:hover,
+        &:focus {
+          background-color: rgba($darkBlue,0.1);
+        }
+        &:focus {
+          outline: 0;
+        }
+        &:active {
+          background-color: rgba($darkBlue,0.2);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+// Images, audio, videos
+
+// display: fix for IE9
+audio, canvas, video {
+  display: inline-block;
+}
+
+// Fluid-width audio and video
+audio, video {
+  width: 100%;
+}
+
+img {
+  border: 0; // Remove the `border` when inside an <a> element in IE 8/9
+  vertical-align: middle; // Remove gap between <img> elements and the bottom of their containers - http://cbrac.co/Q6smqV
+}
+
+// Fluid-width media that maintain their aspect ratios
+img, video {
+  max-width: 100%;
+  width: auto\9;
+  height: auto !important;
+}

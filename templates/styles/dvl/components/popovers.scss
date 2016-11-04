@@ -1,0 +1,127 @@
+// Popovers
+// For now, only used in delete confirmations.
+
+$arrowBorder: 0.625rem;
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: $z_popover;
+  display: none;
+  max-width: 15rem;
+  padding: 0;
+  @include font_smoothing;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 1px solid $gray;
+  border-radius: $radius;
+  box-shadow: 0 1px 0 rgba(#000,0.06);
+  opacity: 0;
+  &.in {
+    opacity: 1;
+  }
+  &.top {
+    margin-top: -$rhythm;
+    transform: scale(1,1) translateY(5px);
+  }
+  &.right {
+    margin-left: $rhythm;
+    transform: scale(1,1) translateX(-5px);
+  }
+  &.bottom {
+    margin-top: $rhythm;
+    transform: scale(1,1) translateY(-5px);
+  }
+  &.left {
+    margin-left: -$rhythm;
+    transform: scale(1,1) translateX(5px);
+  }
+}
+
+.popover_content {
+  padding: $rhythm;
+}
+
+// Arrows
+//
+// .arrow is outer, .arrow:after is inner
+
+.popover > .arrow {
+  &,
+  &:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+}
+.popover > .arrow {
+  border-width: $arrowBorder;
+}
+.popover > .arrow:after {
+  border-width: $arrowBorder;
+  content: "";
+}
+
+.popover {
+  &.top > .arrow {
+    left: 50%;
+    margin-left: -$arrowBorder;
+    border-bottom-width: 0;
+    border-top-color: $gray;
+    bottom: -$arrowBorder;
+    &:after {
+      content: " ";
+      bottom: 1px;
+      margin-left: -$rhythm;
+      border-bottom-width: 0;
+      border-top-color: $white;
+    }
+  }
+  &.right > .arrow {
+    top: 50%;
+    left: -$arrowBorder;
+    margin-top: -$arrowBorder;
+    border-left-width: 0;
+    border-right-color: $gray;
+    &:after {
+      content: " ";
+      left: 1px;
+      bottom: -$rhythm;
+      border-left-width: 0;
+      border-right-color: $white;
+    }
+  }
+  &.bottom > .arrow {
+    left: 50%;
+    margin-left: -$arrowBorder;
+    border-top-width: 0;
+    border-bottom-color: $gray;
+    top: -$arrowBorder;
+    &:after {
+      content: " ";
+      top: 1px;
+      margin-left: -$arrowBorder;
+      border-top-width: 0;
+      border-bottom-color: $white;
+    }
+  }
+
+  &.left > .arrow {
+    top: 50%;
+    right: -$arrowBorder;
+    margin-top: -$arrowBorder;
+    border-right-width: 0;
+    border-left-color: $gray;
+    &:after {
+      content: " ";
+      right: 1px;
+      border-right-width: 0;
+      border-left-color: $white;
+      bottom: -$rhythm;
+    }
+  }
+}

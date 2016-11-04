@@ -1,0 +1,276 @@
+@import 'dvl/core';
+@import 'dvl/components/hero';
+
+html {
+  background: $lightestGray;
+}
+
+body {
+  max-width: 50rem;
+  background: #fff;
+  margin: 0 auto;
+  @include font_smoothing;
+  @media screen and (min-width: $lapWidth) {
+    font-size: 112.5%;
+  }
+  @media screen and (min-width: $deskWidth) {
+    font-size: 125%;
+  }
+}
+
+.outer-container {
+  padding: $lineHeight 5%;
+  @media screen and (min-width: $lapWidth) {
+    padding: 0 $lineHeight;
+  }
+  @media screen and (min-width: $lapWidth) {
+    padding: 0 ($lineHeight * 2);
+  }
+}
+
+h1, h2 {
+  font-family: $fontFamilyDefault;
+  font-weight: 700;
+  margin-left: 0;
+  line-height: 1.3;
+}
+
+h1 {
+  color: #fff;
+}
+
+ul {
+  @include formatted_list_ul;
+}
+
+ol {
+  @include formatted_list_ol;
+}
+
+.hero {
+  @include hero_color(#09152f,#4b20ba,0.2,#fa4b00,0.2);
+  text-align: center;
+  h1 {
+    margin: 0;
+  }
+  p {
+    margin: 0 auto;
+  }
+}
+
+p code,
+li code {
+  color: $darkestGray;
+}
+
+// Define asterism.
+.chapter + .chapter:before {
+  content: '\2234';
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  padding: 50px 0;
+}
+
+.chapter > h2 {
+  margin-top: 0;
+}
+
+// Code highlighting
+.highlight {
+  padding: 15px;
+}
+
+.highlight .gutter {
+  color: #ccc;
+  padding-right: 15px;
+}
+
+// Table of contents
+.table-of-contents {
+  padding: $lineHeight 0;
+  border-bottom: 1px solid $gray;
+}
+
+// Define chapter numbering
+.chapters {
+  counter-reset: chapter 1;
+}
+
+.chapter {
+  padding-top: $lineHeight * 2;
+  counter-increment: chapter;
+}
+
+.chapter h2:before {
+  content: 'Chapter ' counter(chapter);
+  display: block;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: $darkerGray;
+  font-size: 1rem;
+  letter-spacing: $letterspaceNormal;
+  line-height: 1;
+}
+
+.chapter h3 {
+  margin-top: $lineHeight;
+}
+
+// Footnotes
+
+sup {
+  padding: ($rhythm * 0.5);
+  background: rgba($blueHighlight,0.5);
+  border-radius: $radius;
+  display: inline-block;
+  line-height: 1;
+  top: $rhythm * -1.25;
+  font-weight: $weightBold;
+  margin-left: $rhythm * 0.75;
+}
+
+.footnotes {
+  margin-top: $lineHeight;
+  padding-top: $lineHeight * 2;
+  border-top: 1px solid $gray;
+  font-size: 1rem;
+}
+
+.footnotes hr {
+  display: none;
+}
+
+// Notes
+.note {
+  font-size: 13px;
+  float: right;
+  overflow: hidden;
+  position: relative;
+  padding-left: 50px;
+  margin: 30px 0;
+}
+
+.note:before {
+  content: '!';
+  display: inline-block;
+  font-size: 25px;
+  width: 10px;
+  height: 10px;
+  padding: 15px;
+  line-height: 15px;
+  text-align: center;
+  border-radius: 50%;
+  border-bottom-right-radius: 0;
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+
+.note.info:before {
+  background: #f5be28;
+  color: #fff;
+}
+
+.note.warning:before {
+  background: #e42e24;
+  color: #fff;
+}
+
+// Format lexers list
+.lexers-list {
+  margin: 0;
+  padding: 0;
+  -webkit-columns: 2;
+  columns: 2;
+}
+
+.lexers-list li {
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid-column;
+}
+
+.lexers-list span {
+  font-size: 13px;
+}
+
+.lexers-list li + li {
+  margin-top: 15px;
+}
+
+// Format imprint
+.imprint {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px solid #eee;
+}
+
+.imprint * {
+  margin: 0;
+  font-size: 12px;
+}
+
+.imprint .description {
+  margin-bottom: 10px;
+}
+
+// Table of contents
+
+.table-of-contents .level2 {
+  counter-increment: toc-level2;
+  counter-reset: toc-level3;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.table-of-contents .level2 a {
+  text-decoration: none;
+  color: $black;
+  font-weight: bold;
+}
+
+.table-of-contents .level2:before {
+  content: 'Chapter ' counter(toc-level2);
+  font-size: $fontSmall;
+  text-transform: uppercase;
+  letter-spacing: $letterspaceSmall;
+  color: $darkerGray;
+  display: block;
+}
+
+.table-of-contents .level2 ~ .level2 {
+  margin-top: 40px;
+}
+
+@media screen and (min-width: $deskWidth) {
+  #toc {
+    -webkit-columns: 2;
+    columns: 2;
+  }
+}
+
+#toc > div {
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid-column;
+}
+
+// Go top
+.go-top {
+  font-size: 50px;
+  text-decoration: none;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  display: inline-block;
+  background: rgba(#000, .2);
+  text-align: center;
+  border-radius: 10px;
+  line-height: 1;
+  color: rgba(#fff, .4);
+  padding-top: 10px;
+
+  &:hover {
+    color: #fff;
+  }
+}

@@ -1,0 +1,44 @@
+# The book's title. Will be used everywhere!
+title: "How to Fix Procurement"
+
+# The book's language.
+language: en
+
+# Your book copyright info.
+# Here's some examples:
+#
+#   Copyright 2016 by Work.
+#   Copyright 2016 by Work. This work is licensed under MIT License.
+#   This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.
+#   This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+#   This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+#
+copyright: ""
+
+# Who's publishing this book.
+publisher: "The Department of Better Technology"
+
+# When this book was published.
+published_at: "2013-09-05"
+
+# Some book description.
+subject: ""
+
+# Some keywords that identify this book.
+keywords: "kitabu, e-book, kindlegen, epub, mobi, pdf, prince"
+
+# Some unique identification. Works great with your domain
+# like `http://yourbook.example.com`.
+uid: "b11ad48f78c7820bb31b6e2cd71373c4"
+
+# Your book identification like ISBN or ISSN.
+identifier:
+  id: "http://dobt.co"
+  type: "URL" # can be ISBN, ISSN or URL
+
+# This book authors.
+authors:
+  - "Clay Johnson"
+
+# Syntax highlight theme. Can be any of supported by Rouge.
+theme: github

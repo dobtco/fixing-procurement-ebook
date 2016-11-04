@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="html">
+  <head>
+    <title><%= title %></title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link name="stylesheet" rel="stylesheet" type="text/css" href="styles/html.css" />
+    <meta name="author" content="<%= authors.join(', ') %>" />
+    <meta name="subject" content="<%= subject %>" />
+    <meta name="keywords" content="<%= keywords %>" />
+    <meta name="date" content="<%= published_at %>" />
+    <%= highlight_theme %>
+    <script src='https://use.typekit.net/tsq2vzs.js'></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+  </head>
+
+  <body>
+    <div class="hero">
+      <h1><%= title %></h1>
+      <p class="authors"><%= authors.to_sentence %></p>
+    </div>
+    <div class="outer-container">
+
+      <div class="white-page"></div>
+
+      <div class="table-of-contents">
+        <h2 class="no-toc">Contents</h2>
+        <div id="toc">
+          <%= toc %>
+        </div>
+      </div>
+
+      <div id="chapters">
+        <%= content %>
+      </div>
+
+      <% if changelog %>
+        <div class="container changelog">
+          <%= changelog %>
+        </div>
+      <% end %>
+
+      <div class="white-page"></div>
+
+      <div class="imprint container">
+        <div>
+          <h2><%= title %></h2>
+          <p class="description"><%= subject %></p>
+          <p class="authors"><%= authors.to_sentence %></p>
+          <p class="copyright"><%= copyright %></p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="go-top">⇧</a>
+  </body>
+</html>

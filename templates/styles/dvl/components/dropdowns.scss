@@ -1,0 +1,393 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+// Nav dropdowns
+
+.dropdown_nav {
+  li a,
+  .drop_sng {
+    padding: 0 1.5rem;
+    line-height: 3rem;
+    height: 3rem;
+    @include cf;
+  }
+  .all {
+    .drop_rt_item,
+    .drop_rt_arrow {
+      width: auto;
+      float: none;
+    }
+    .drop_rt_item {
+      max-width: 87%;
+    }
+    .drop_rt_arrow {
+      max-width: 10%;
+    }
+  }
+}
+
+
+// Container
+.dropdown_menu {
+  display: none;
+  float: left;
+  // Overriding typography rules set in the menu's parent element...
+  // .navbar buttons, forms, etc.
+  font-size: 1rem;
+  line-height: $lineHeight;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: $z_dropdown;
+  background-clip: padding-box;
+  min-width: 18rem;
+  max-width: 22rem;
+  background-color: $white;
+  box-shadow: 0 1px 0 rgba(#000,0.06);
+  border: 1px solid $lightGray;
+  border-radius: $radius;
+  @include font_smoothing;
+  // Right-aligned menu
+  &.dropdown_right {
+    right: 0;
+    left: auto;
+  }
+  // Headers
+  h3 {
+    background: $lighterGray;
+    color: $darkestGray;
+    padding: $rhythm $rhythm * 2;
+    font-size: $fontSmaller;
+    line-height: $lineHeight;
+    text-transform: uppercase;
+    letter-spacing: $letterspaceSmaller;
+    margin: 0;
+    &:first-child {
+      @include border_top_radius($radius - 1);
+    }
+  }
+  .open & {
+    display: block;
+    > a {
+      outline: 0;
+    }
+  }
+}
+
+.dropdown_body {
+  max-height: ($lineHeight * 15) + $rhythm; // Overlap a list item with the bottom edge
+  overflow: auto;
+  > li {
+
+    > a,
+    > span {
+      // All list items
+      @include cf;
+      display: block;
+      position: relative;
+      min-height: $rhythm * 5;
+      padding: $rhythm $rhythm * 2;
+      clear: both;
+      // Override parent line height
+      line-height: $lineHeight;
+    }
+    &:first-child {
+      & > a,
+      & > span {
+        @include border_top_radius($radius);
+      }
+    }
+    &:last-child {
+      & > a,
+      & > span {
+        @include border_bottom_radius($radius);
+      }
+    }
+    > a {
+      color: $darkestGray;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: rgba($linkColor,0.04);
+      }
+      &:focus {
+        outline: 1px dotted $darkerGray;
+      }
+    }
+    &.divider {
+      // Dividers separating items
+      border-bottom: 1px solid $gray;
+    }
+    &.dropdown_more a {
+      // "More items" link
+      color: $darkerGray;
+      font-size: $fontSmaller;
+    }
+    &.dropdown_loading {
+      // Loading state
+      span {
+        display: block;
+        padding: $rhythm * 2;
+        text-align: center;
+        color: $gray;
+      }
+    }
+    &.active {
+      > a,
+      > a:hover,
+      > a:focus {
+        // Active state
+        color: $white;
+        text-decoration: none;
+        outline: 0;
+        background-color: $primaryColor;
+      }
+    }
+    &.disabled {
+      // Disabled state
+      > a,
+      > a:hover,
+      > a:focus {
+        color: $darkerGray;
+        background: $lightestGray;
+      }
+      // Override hover/focus effects
+      > a:hover,
+      > a:focus {
+        text-decoration: none;
+        background-image: none;
+        cursor: not-allowed;
+      }
+    }
+}
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown_backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: $z_dropdown - 10;
+}
+
+// Multi-level list items
+
+.dropdown_menu_sub {
+  display: none;
+}
+
+.dropdown_menu_sub_trigger {
+    position: relative;
+    &:after {
+      content: "\f105";
+      font-family: 'FontAwesome';
+      font-size: 1.5rem;
+      line-height: 1;
+      color: $gray;
+      width: $rhythm * 5;
+      text-align: center;
+      position: absolute;
+      @include topCenter(($rhythm * 5), 1.5rem);
+      right: 0;
+    }
+    &.is_open{
+      &:after {
+        content: "\f107";
+        color: $white;
+      }
+      a {
+        background: $darkestGray;
+        color: $white;
+        &:hover, &:active, &:visited {
+          color: $white;
+        }
+        &:hover, &:active, &:focus {
+          background: $darkestGray;
+        }
+      }
+      & + li .dropdown_menu_sub {
+        display: block;
+      }
+    }
+  }
+}
+
+.dropdown_menu_sub li {
+  a {
+    @include cf;
+    padding: $rhythm $rhythm * 2;
+    display: block;
+    color: $darkerGray;
+    max-height: ($fontSmall * 4.5) + ($rhythm * 2);
+    @include font_smoothing;
+    overflow: hidden;
+    border-bottom: 1px solid $lighterGray;
+    font-size: $fontSmall;
+    line-height: $unitlessLineHeight;
+    position: relative;
+    &:after {
+      position: absolute;
+      content: '';
+      z-index: 2;
+      height: $lineHeight;
+      right: 0;
+      bottom: $rhythm;
+      width: $rhythm * 6;
+      background: linear-gradient(to right, rgba($white,0), $white 64%);
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      background: $lightestGray;
+      &:after {
+        background: linear-gradient(to right, rgba($lightestGray,0), $lightestGray 64%);
+      }
+    }
+  }
+  &:first-child a {
+    border-top: ($rhythm / 2) solid $lighterGray;
+  }
+  &:last-child a {
+    border-bottom-width: ($rhythm / 2);
+  }
+  &.active a {
+    background-color: $primaryColor;
+    color: $white;
+    &:after {
+      background: linear-gradient(to right, rgba($linkColor,0), $linkColor 64%);
+    }
+  }
+}
+
+// Multi-column:
+// Square item (icon, color legend, image) on left,
+// Description on right
+
+.drop_master,
+.drop_master_multiline,
+.drop_detail,
+.drop_detail_multiline {
+  float: left;
+}
+
+.drop_master,
+.drop_master_multiline {
+  width: $lineHeight;
+  position: absolute;
+  top: $rhythm;
+  left: $rhythm * 2;
+  z-index: 2;
+  i {
+    font-size: 1rem;
+    line-height: $lineHeight;
+    color: $darkGray;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    .drop_important & {
+      color: $darkestGray;
+    }
+    .active & {
+      color: $white;
+    }
+  }
+}
+
+.drop_master_color {
+  display: inline-block;
+  width: $lineHeight;
+  height: $lineHeight;
+  float: left;
+  border-radius: 50%;
+}
+
+.drop_master_avatar {
+  @include avatar;
+}
+
+
+.drop_detail,
+.drop_detail_multiline {
+  width: 100%;
+  padding-left: $rhythm * 5;
+}
+
+// Dropdown item with arrow at right
+
+.drop_rt_item,
+.drop_rt_arrow {
+  float: left;
+}
+.drop_rt_item {
+  width: 87%;
+  margin-right: 3%;
+  float: left;
+  @include ellipses;
+}
+.drop_rt_arrow {
+  width: 10%;
+  text-align: center;
+  color: $darkerGray;
+}
+
+// Dropdowns with filter / search bar
+
+.dropdown_filter_head {
+  padding: 0;
+  border-bottom: ($rhythm / 2) solid $gray;
+  @include border_top_radius($radius - 1);
+  &:after {
+    @include icon('\f002');
+    position: absolute;
+    line-height: 1;
+    @include topCenter(($rhythm * 5), 1rem);
+    left: $rhythm * 2;
+    width: $lineHeight;
+    text-align: center;
+    @include font_smoothing;
+    color: $darkGray;
+  }
+  input {
+    border: 0;
+    height: $rhythm * 5;
+    padding-left: $rhythm * 6;
+  }
+}
+
+.dropdown_filter {
+  li {
+    position: relative;
+    a {
+      padding-right: $lineHeight + ($rhythm * 2); // Making room for the icon
+    }
+    &.is_focused {
+      background: rgba($linkColor,0.04);
+    }
+    &:after {
+      line-height: 1;
+      position: absolute;
+      top: (($lineHeight + ($rhythm * 2)) - 1rem) / 2; // Vetical centering
+      right: 0;
+      width: $lineHeight + ($rhythm * 2);
+      text-align: center;
+      color: $darkGray;
+    }
+    &.is_selected:after {
+      @include icon('\f00c');
+    }
+    &.is_partial:after {
+      @include icon('\f068'); // Partially selected options
+    }
+    &.is_disabled {
+      opacity: 0.6;
+      &:after {
+        color: $gray;
+        @include icon('\f00c');
+      }
+    }
+  }
+}

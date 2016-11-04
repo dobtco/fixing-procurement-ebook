@@ -1,0 +1,36 @@
+.hero {
+  color: $white;
+  @include font_smoothing;
+  h1 {
+    color: $white;
+    a {
+      color: $white;
+      &:hover,
+      &:focus,
+      &:active,
+      &:visited {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+  }
+  img {
+    max-width: $lineHeight * 2;
+  }
+  p {
+    @include fontH3;
+    max-width: 30rem;
+  }
+  padding: $lineHeight * 3 0;
+  &.hero_compact {
+    padding: $rhythm 0;
+    text-align: center;
+    @media screen and (min-width: $lapWidth) {
+      text-align: left;
+    }
+    h1 {
+      @include fontH2;
+      margin: 0;
+    }
+  }
+}

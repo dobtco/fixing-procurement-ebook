@@ -1,0 +1,99 @@
+.sidebar_nav {
+  margin-bottom: $rhythm * 2;
+  > li {
+    > a,
+    &.content,
+    &.header {
+      border: 1px solid;
+      @include font_smoothing;
+    }
+    &.header {
+      color: $darkerGray;
+      border: 0;
+      position: relative;
+      padding: 0 0 $rhythm;
+      img {
+        height: $lineHeight;
+        width: $lineHeight;
+        border-radius: $radius;
+        float: left;
+        margin-right: $rhythm;
+      }
+    }
+    > a:focus {
+      outline: 0;
+    }
+    > a,
+    &.content {
+      position: relative;
+      display: block;
+      color: $darkestGray;
+      background-color: $lightestGray;
+      line-height: $lineHeight;
+      text-decoration: none;
+      border-color: $lightGray;
+      border-bottom-width: 0;
+      padding: ($rhythm * 2) $lineHeight;
+
+      // Add padding when there's a badge or icon
+      &.sidebar_nav_multi_item {
+        padding-right: 25%;
+      }
+    }
+    &:first-child {
+      > a,
+      &.content,
+      &.header + li.content,
+      &.header + li > a {
+        @include border_top_radius($radius);
+      }
+    }
+    &:last-child {
+      > a, &.content {
+        @include border_bottom_radius($radius);
+        border-bottom-width: 1px;
+      }
+    }
+    .badge,
+    .sidebar_nav_icon {
+      position: absolute;
+      right: $lineHeight;
+      top: $rhythm * 2;
+      color: $darkestGray;
+      padding: 0 $rhythm;
+      border-radius: $radius;
+    }
+    .badge {
+      background-color: $lightGray;
+    }
+    .sidebar_nav_icon {
+      line-height: $lineHeight;
+    }
+    > a:focus,
+    > a:hover {
+      background-color: $lighterGray;
+      .badge {
+        background-color: $gray;
+      }
+    }
+    &.active {
+      > a {
+        background: $darkestGray;
+        color: $white;
+      }
+      .sidebar_nav_icon {
+        color: $white;
+      }
+      .badge {
+        background-color: $white;
+        color: $darkestGray;
+      }
+      &:hover,
+      &:focus {
+        .badge {
+          background-color: $white;
+        }
+      }
+    }
+  }
+}

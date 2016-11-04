@@ -1,0 +1,73 @@
+// Used to display basic information about a user of the app.
+
+.user_block {
+  margin-bottom: $lineHeight;
+  @include cf;
+  display: inline-block;
+  img {
+    width: $rhythm * 10;
+    @include avatar;
+  }
+  img, figcaption {
+    float: left;
+  }
+  figure {
+    position: relative;
+    @include cf;
+    margin-bottom: 0;
+    padding: $rhythm ($rhythm * 2.5) $rhythm ($rhythm * 1.5);
+    border: 1px solid $lightGray;
+    border-radius: $radius;
+    box-shadow: 0 1px 0 rgba(#000,0.04);
+    display: inline-block;
+  }
+  p {
+    margin: 0;
+  }
+  strong {
+    font-weight: $weightNormal;
+  }
+  figcaption {
+    margin-top: $rhythm * 2;
+    display: inline-block;
+    margin-left: $rhythm * 2;
+    em {
+      color: $darkerGray;
+      font-style: normal;
+      font-size: $fontSmall;
+      display: block;
+    }
+  }
+}
+
+// User block with header and links
+
+.user_block_rich {
+  position: relative;
+  figure {
+    margin-bottom: $lineHeight * 2;
+  }
+  figcaption {
+    margin-top: $rhythm / 2;
+  }
+}
+
+.user_block_header {
+  font-size: $fontSmaller;
+  line-height: $lineHeight;
+  text-transform: uppercase;
+  letter-spacing: $letterspaceSmaller;
+}
+
+.user_block_links {
+  position: absolute;
+  right: 0;
+  bottom: $lineHeight;
+  a {
+    font-size: $fontSmaller;
+    margin-right: $rhythm * 2;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

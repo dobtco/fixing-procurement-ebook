@@ -1,0 +1,426 @@
+// WARNING: this file must only include variables and mixins. It cannot
+// have any output, since it might be included multiple times in host apps.
+
+// App-specific colors
+$bodyBackgroundColor: #fff !default;
+$brandColor: #555e6b !default;
+$selectionBackground: $brandColor !default;
+$selectionColor: #fff !default;
+
+// Grayscale
+$black: #292929;
+$darkestGray: #474747;
+$darkerGray: #666;
+$darkGray: #b8b8b8;
+$gray: #d6d6d6;
+$lightGray:#e6e6e6;
+$lighterGray: #f5f5f5;
+$lightestGray: #fafafa;
+$white: #fff;
+
+// UI Colors
+
+$primaryColor: #5e708a !default;
+$primaryColorText: $white !default;
+$secondaryColor: #555e6b !default;
+$secondaryColorText: $white !default;
+$successColor: #5ee0ac !default;
+$successColorText: #204d3b !default;
+$warningColor: #dae376 !default;
+$warningColorText: #5C5a0a !default;
+$errorColor: #d63176 !default;
+$errorColorText: $white !default;
+$highlight: #dff5f7 !default;
+
+// Blues
+$logoBlue: #009ade;
+$blueGray: #6a6e75;
+$lighterBlueGray: #6a6e75;
+$linkColor: #426ca6;
+$linkSelectedColor: #304e78;
+$bodyFontColor: $darkestGray;
+$darkBlue: #5bb7d9;
+
+// Other Colors
+$alertColor: $errorColor !default;
+$blueHighlight: #bfeef3;
+$mintHighlight: #dbf4bf;
+$purpleBlue: #6569f0;
+
+// Qualitative colors
+
+$qualColor1:  $errorColor;
+$qualColor2:  #e16d72;
+$qualColor3:  #ec846d;
+$qualColor4:  #f79a68;
+$qualColor5:  #efb765;
+$qualColor6:  #e3e15f;
+$qualColor7:  #c2e172;
+$qualColor8:  #a1e085;
+$qualColor9:  #82e098;
+$qualColor10: $successColor;
+
+// Label colors
+
+$redLabelColor: $errorColor;
+$lightRedLabelColor: #f0becf;
+$orangeLabelColor: #f79a68;
+$lightOrangeLabelColor: #f0ccbe;
+$yellowLabelColor: #e3e15f;
+$lightYellowLabelColor: #fcf4c3;
+$greenLabelColor: $successColor;
+$lightGreenLabelColor: #dbf4bf;
+$blueLabelColor: #5bb7d9;
+$lightBlueLabelColor: #bfeef3;
+$purpleLabelColor: #6569f0;
+$lightPurpleLabelColor: #bec9f0;
+
+
+// Corner radius
+$radius: 3px !default;
+
+
+// TYPOGRAPHY
+
+// Font weights
+$weightLight: 200 !default;
+$weightNormal: 400 !default;
+$weightBold: 500 !default;
+
+// Typography
+$fontFamilyDefault: 'franklin-gothic-urw', 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', 'Helvetica Neue', Arial, sans-serif !default;
+$fontFamilyDisplay: 'tablet-gothic-wide', 'HelveticaNeue-Light', Helvetica, Arial, sans-serif !default;
+$fontFamilyMonospace: 'Consolas', 'Monaco', 'Lucida Console', monospace !default;
+$unitlessRhythm: 0.5 !default; // 8px @ 16px root
+$rhythm: $unitlessRhythm * 1rem !default;
+$unitlessLineHeight: 1.5 !default; // 24px
+$lineHeight: $unitlessLineHeight * 1rem !default;
+$maxFontSize: 100% !default; // 16px
+
+$ratio: 1.5;
+
+// Font Sizes - Large Screens
+
+$fontSizeH1: 3.5rem !default; // 56px
+$fontLineHeightH1: (10 * $rhythm) !default; // 80px
+$fontOpticalMarginH1: -0.3125rem;
+
+$fontSizeH2: 2.25rem !default; // 36px
+$fontLineHeightH2: (7 * $rhythm) !default; // 56px
+$fontOpticalMarginH2: -0.125rem;
+
+$fontSizeH3: 1.4375rem !default; // 23px
+$fontLineHeightH3: (4.5 * $rhythm) !default; // 36px
+
+// Font Sizes - Small Screens
+
+$fontSizeH1Mobile: 2rem !default; // 32px
+$fontLineHeightH1Mobile: (6 * $rhythm) !default; // 48px
+
+$fontSizeH2Mobile: 1.5625rem !default; // 25px
+$fontLineHeightH2Mobile: (5 * $rhythm) !default; // 40px
+
+$fontSizeH3Mobile: 1.25rem !default; // 20px
+$fontLineHeightH3Mobile: 4 * $rhythm !default; // 32px
+
+@mixin fontDefault {
+  font-family: $fontFamilyDefault;
+  font-weight: $weightNormal;
+}
+
+@mixin fontDisplay {
+  font-family: $fontFamilyDisplay;
+  font-weight: $weightLight;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'tnum';
+}
+
+// Used in addition to fontDefault
+// when overriding fontDisplay
+
+@mixin fontDisplayReset {
+  letter-spacing: 0;
+  font-feature-settings: normal;
+}
+
+@mixin fontH1 {
+  font-size: $fontSizeH1Mobile;
+  line-height: $fontLineHeightH1Mobile;
+  @include fontDisplay;
+  @media screen and (min-width: $lapWidth) {
+    margin-left: $fontOpticalMarginH1; // Optically align Source Sans with body text
+    font-size: $fontSizeH1;
+    line-height: $fontLineHeightH1;
+  }
+}
+
+@mixin fontH2 {
+  font-size: $fontSizeH2Mobile;
+  line-height: $fontLineHeightH2Mobile;
+  font-weight: $weightNormal;
+  @media screen and (min-width: $lapWidth) {
+    margin-left: $fontOpticalMarginH2; // Optically align Source Sans with body text
+    font-size: $fontSizeH2;
+    line-height: $fontLineHeightH2;
+    @include fontDisplay;
+  }
+}
+
+@mixin fontH3 {
+  font-size: $fontSizeH3Mobile;
+  line-height: $fontLineHeightH3Mobile;
+  font-weight: $weightNormal;
+  @media screen and (min-width: $lapWidth) {
+    font-size: $fontSizeH3;
+    line-height: $fontLineHeightH3;
+  }
+}
+
+
+$fontSmall: 0.875rem; // 14px
+$fontSmaller: 0.8125rem; // 13px
+$fontSmallest: 0.75rem; // 12px
+
+// Small caps letterspacing at different sizes
+
+$letterspaceNormal: 0.08rem;
+$letterspaceSmall: 0.05rem;
+$letterspaceSmaller: 0.06rem;
+$letterspaceSmallest: 0.05rem;
+
+// LAYOUT
+
+$inputHeight: $rhythm * 5 !default; // 36px @ 16px root
+$inputPadding: $rhythm !default;
+
+$largeInputHeight: $rhythm * 7 !default;
+$largeInputPadding: $inputPadding * $ratio !default;
+$smallInputHeight: 2.125rem !default;
+
+// Grid
+$columnWidth: 8.333%;
+$gutterWidth: $lineHeight;
+$lapGutterWidth: $lineHeight * 2;
+
+// Viewport widths
+$lapWidth: 640px;
+$deskWidth: 960px;
+$maxWidth: 1140px;
+
+// Navigation
+
+$navBackground: #0f1c3c !default;
+$navText: #fff !default;
+$navHeight: $rhythm * 7 !default;
+
+// might want to adjust this based on how many items are in your nav
+$navBreakpoint: $deskWidth !default;
+
+// Z-index scale
+$z_popover: 590 !default;
+$z_dropdown: 600 !default;
+$z_tooltip: 600 !default;
+$z_navbar: 700 !default;
+$z_modal: 800 !default;
+$z_flash: 900 !default;
+
+// MIXINS
+
+// Lightest possible text color to meet Level AA
+// Fails contrast ratio if text isn't bold
+
+@mixin lightestText {
+  color: #959595;
+  font-weight: $weightBold;
+}
+
+// Utility mixins
+
+@mixin font_smoothing($sub: 'on') {
+  @if $sub == 'on' {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin icon($unicode_id) {
+  content: $unicode_id;
+  font-family: 'FontAwesome';
+}
+
+@mixin border_top_radius($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border_right_radius($radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border_bottom_radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border_left_radius($radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+// Animation mixins
+
+$easeInQuad:      cubic-bezier(0.550,  0.085, 0.680, 0.530);
+$easeInCubic:     cubic-bezier(0.550,  0.055, 0.675, 0.190);
+$easeInQuart:     cubic-bezier(0.895,  0.030, 0.685, 0.220);
+$easeInQuint:     cubic-bezier(0.755,  0.050, 0.855, 0.060);
+$easeInSine:      cubic-bezier(0.470,  0.000, 0.745, 0.715);
+$easeInExpo:      cubic-bezier(0.950,  0.050, 0.795, 0.035);
+$easeInCirc:      cubic-bezier(0.600,  0.040, 0.980, 0.335);
+$easeInBack:      cubic-bezier(0.600, -0.280, 0.735, 0.045);
+
+$easeOutQuad:     cubic-bezier(0.250,  0.460, 0.450, 0.940);
+$easeOutCubic:    cubic-bezier(0.215,  0.610, 0.355, 1.000);
+$easeOutQuart:    cubic-bezier(0.165,  0.840, 0.440, 1.000);
+$easeOutQuint:    cubic-bezier(0.230,  1.000, 0.320, 1.000);
+$easeOutSine:     cubic-bezier(0.390,  0.575, 0.565, 1.000);
+$easeOutExpo:     cubic-bezier(0.190,  1.000, 0.220, 1.000);
+$easeOutCirc:     cubic-bezier(0.075,  0.820, 0.165, 1.000);
+$easeOutBack:     cubic-bezier(0.175,  0.885, 0.320, 1.275);
+
+$easeInOutQuad:  cubic-bezier(0.455,  0.030, 0.515, 0.955);
+$easeInOutCubic: cubic-bezier(0.645,  0.045, 0.355, 1.000);
+$easeInOutQuart: cubic-bezier(0.770,  0.000, 0.175, 1.000);
+$easeInOutQuint: cubic-bezier(0.860,  0.000, 0.070, 1.000);
+$easeInOutSine:  cubic-bezier(0.445,  0.050, 0.550, 0.950);
+$easeInOutExpo:  cubic-bezier(1.000,  0.000, 0.000, 1.000);
+$easeInOutCirc:  cubic-bezier(0.785,  0.135, 0.150, 0.860);
+$easeInOutBack:  cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+@mixin cf() {
+  &:before, &:after {
+    display: table;
+    content: " ";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Vertical centering mixins
+// $parentHeight: height of the parent element
+// $height: Height of the element you want to center
+
+@mixin topCenter($parentHeight, $height) {
+  top: ($parentHeight - $height) / 2;
+}
+
+@mixin marginTopCenter($parentHeight, $height) {
+  margin-top: ($parentHeight - $height) / 2;
+}
+
+@mixin topCenterAbsolute($height) {
+  position: absolute;
+  top: 50%;
+  margin-top: $height / -2;
+}
+
+@mixin monospace() {
+  font-family: $fontFamilyMonospace;
+}
+
+@mixin ellipses {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin word_break {
+  word-wrap: break-word;
+}
+
+@mixin avatar {
+  border-radius: 50%;
+}
+
+// Visually hidden, accessible to screenreaders
+
+@mixin hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+}
+
+// Wrapper
+
+@mixin container() {
+  margin: 0 auto;
+  width: 90%;
+  max-width: $maxWidth;
+}
+
+
+// Visually hidden, but appears on focus
+
+@mixin hiddenFocus {
+  &:focus,
+  &:active {
+    position: static;
+    overflow: visible;
+    clip: auto;
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+}
+
+// Legacy
+
+@mixin button_color($bg, $text) {
+  background: $bg;
+  border: 1px solid darken($bg, 7%);
+  color: $text;
+
+  &:hover,
+  &:focus {
+    background: darken($bg, 7%);
+    border: 1px solid darken($bg, 15%);
+    color: $text;
+  }
+
+  &:active {
+    box-shadow: inset 0 1px 2px darken($bg, 20%);
+  }
+
+  // When a button is disabled, it shouldn't have a distinct
+  // hover/focus/active states.
+  &.disabled,
+  &[disabled] {
+    &:hover,
+    &:focus,
+    &:active {
+      border: 1px solid darken($bg, 7%);
+      background: $bg;
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin hero_color($bgColor, $leftColor, $leftOpacity, $rightColor, $rightOpacity) {
+  background-color: $bgColor;
+  background-image: radial-gradient(farthest-corner at bottom left, rgba($leftColor,$leftOpacity) 7%, rgba($leftColor,0) 58%), radial-gradient(farthest-corner at bottom right, rgba($rightColor,$rightOpacity) 10%, rgba($rightColor,0) 60%);
+}
+
+// Other grays
+
+$blankStateGray: $darkerGray;
+$borderGray: #dfdfdf;

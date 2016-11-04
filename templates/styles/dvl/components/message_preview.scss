@@ -1,0 +1,68 @@
+// Component to view and preview the contents of emails sent and received by the app.
+
+.message_preview {
+  border: 1px solid $darkGray;
+  border-radius: $radius;
+  box-shadow: 0 1px 1px rgba(#000,0.1);
+  min-height: $lineHeight * 16; // 384px
+  max-width: $lapWidth;
+  margin-bottom: $lineHeight;
+  header {
+    @include cf;
+    background: $lightestGray;
+    border-bottom: 1px solid $lighterGray;
+    @include border_top_radius($radius);
+    dl {
+      margin-bottom: 0;
+    }
+    dt {
+      @include font_smoothing;
+      color: $darkerGray;
+    }
+    dd {
+      margin-bottom: $rhythm;
+    }
+  }
+  .is_invalid & {
+    border-color: $errorColor;
+    header {
+      background: rgba($errorColor,0.05);
+    }
+  }
+  .is_duplicate & {
+    border-color: $darkBlue;
+    header {
+      background: rgba($darkBlue,0.1);
+    }
+  }
+}
+
+.message_preview header,
+.message_preview_body {
+  padding: ($rhythm * 2) ($rhythm * 3);
+  @media screen and (min-width: $lapWidth) {
+    padding: $lineHeight ($rhythm * 4);
+  }
+}
+
+@media screen and (min-width: $lapWidth) {
+  .message_preview {
+    header {
+      dt, dd {
+        padding: 0 $rhythm;
+        line-height: $lineHeight;
+      }
+
+      dt {
+        float: left;
+        clear: left;
+        width: $lineHeight * 5;
+        text-align: right;
+      }
+
+      dd {
+        margin-left: $lineHeight * 5;
+      }
+    }
+  }
+}

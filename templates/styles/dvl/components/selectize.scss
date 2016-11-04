@@ -1,0 +1,230 @@
+// Shared styles
+.selectize-control {
+  position: relative;
+}
+
+// Reset text styles and line height
+.selectize-dropdown,
+.selectize-input,
+.selectize-input input {
+  color: $darkestGray;
+  font-size: 1rem;
+  line-height: $lineHeight;
+  @include font_smoothing;
+}
+
+// Shared input styles
+.selectize-input {
+  background: $white;
+  cursor: text;
+  min-height: $inputHeight;
+  border: 1px solid $darkGray;
+  border-radius: $radius;
+  padding: 0 $inputPadding;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+
+  @media screen and (min-width: 25rem) {
+    width: 20rem; // 272px
+  }
+
+  // Match styled select's `is_blank` state
+  ::placeholder {
+    color: #888;
+    font-weight: $weightBold;
+  }
+
+  // Clearfix?
+  &::after {
+    content: ' ';
+    display: block;
+    clear: left;
+  }
+
+  // Untested: disabled styles
+  &.disabled, &.disabled * {
+    cursor: default !important;
+    opacity: 0.6;
+    background: $lighterGray;
+  }
+
+  // Border and caret focus colors
+  &.focus {
+    border-color: $primaryColor;
+    &:after {
+      color: $primaryColor;
+    }
+  }
+
+  // Wtf are these hacks
+  > * {
+    vertical-align: baseline;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+
+  > input {
+    display: inline-block !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+    background: none !important;
+    -webkit-user-select: auto !important;
+    box-shadow: none !important;
+    &:focus { outline: none !important; }
+  }
+}
+
+.selectize-control.single {
+  .selectize-input {
+    display: block;
+    height: $inputHeight;
+    overflow: hidden;
+    cursor: default;
+
+    &:hover:not(.dropdown-active) {
+      background: $lightestGray;
+    }
+
+    &.input-active {
+      cursor: text;
+    }
+
+    // This is currently the hackiest bit.
+    // Remove input borders for proper JS positioning.
+    // Account for removed borders. Try to visually match height of
+    // placeholder and dropdown items. Looks different in Safari/Chrome.
+    > input {
+      border: 0 none !important;
+      margin-top: 1px;
+      height: $inputHeight - 0.2rem;
+      padding: 0 !important;
+    }
+
+    // Caret
+    &:after {
+      font-family: 'FontAwesome';
+      content: '\f0d7';
+      line-height: 1;
+      position: absolute;
+      @include topCenter($inputHeight, 1rem);
+      right: 0;
+      width: $inputHeight;
+      text-align: center;
+      color: $darkerGray;
+    }
+  }
+
+  &.loading .selectize-input:after {
+    content: '\f021';
+    animation: fa-spin 2s infinite linear;
+  }
+
+  .selectize-item {
+    position: relative;
+    padding-top: $rhythm * 1.5;
+    line-height: $rhythm * 2;
+    @include ellipses;
+    display: block;
+    padding-right: 15%;
+  }
+
+  .dropdown-active .selectize-item {
+    float: left;
+    max-width: 85%;
+    padding-right: 0;
+  }
+}
+
+.selectize-control.multi {
+  .selectize-input {
+    padding-top: $rhythm * 0.75;
+    input {
+      height: auto;
+      font-size: $fontSmaller;
+      margin-left: $rhythm;
+      margin-right: ($rhythm / 2);
+      margin-bottom: $rhythm * 0.75;
+      border: 1px solid transparent !important; // match border on items
+      vertical-align: top;
+      border: 1px solid transparent;
+      line-height: 1rem;
+      padding: 0.25rem 0;
+    }
+  }
+
+  .selectize-item {
+    max-width: 100%;
+    cursor: pointer;
+    margin-right: ($rhythm / 2);
+    margin-bottom: $rhythm * 0.75;
+    padding: ($rhythm / 2) $rhythm;
+    background: $lightestGray;
+    border-radius: $radius;
+    color: $darkestGray;
+    border: 1px solid $lightGray;
+    font-size: $fontSmaller;
+    line-height: $rhythm * 2;
+    @include font_smoothing;
+    box-shadow: 0 1px rgba(#000,0.02);
+    vertical-align: top;
+    &:last-child {
+      margin: 0;
+    }
+    &.active {
+      background: $primaryColor;
+      color: $white;
+      border: 1px solid darken($primaryColor,7%);
+    }
+    .disabled & {
+      opacity: 0.7;
+      &.active {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.selectize-dropdown {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid $gray;
+  background: $white;
+  margin-top: $rhythm;
+  box-shadow: 0 1px 0 rgba($black,0.06);
+  border-radius: $radius;
+  [data-selectable] {
+    cursor: pointer;
+    overflow: hidden;
+    .highlight {
+      background: darken($blueHighlight,10%);
+      border-radius: $radius;
+    }
+  }
+  [data-selectable], .optgroup-header {
+    padding: $rhythm ($rhythm * 2);
+  }
+  .optgroup:first-child .optgroup-header {
+    border-top: 0 none;
+  }
+  .optgroup-header {
+    color: $darkerGray;
+    background: $lightestGray;
+    cursor: default;
+  }
+  .active {
+    background-color: $blueHighlight;
+  }
+}
+
+// Dropdown
+.selectize-dropdown-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: $lineHeight * 8 + $rhythm; // Overlap a list item with the bottom edge
+}

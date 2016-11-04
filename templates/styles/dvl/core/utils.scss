@@ -1,0 +1,37 @@
+// Hide from screen readers and browsers
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.cf {
+  @include cf;
+}
+
+.visuallyhidden {
+  @include hidden;
+}
+
+.visuallyhidden.focusable {
+  @include hiddenFocus;
+}
+
+// Utility animations
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

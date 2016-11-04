@@ -1,0 +1,346 @@
+// Timepicker
+
+.ui-timepicker-wrapper {
+  overflow-y: auto;
+  height: $rhythm * 20;
+  @include font_smoothing;
+  background-color: $white;
+  color: $darkestGray;
+  box-shadow: 0 1px 0 rgba(#000,0.06);
+  border: 1px solid $lightGray;
+  border-radius: $radius;
+  outline: none;
+  z-index: 10001;
+  margin: 0;
+}
+
+.ui-timepicker-wrapper.ui-timepicker-with-duration {
+  width: 13em;
+}
+
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-30,
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-60 {
+  width: 11em;
+}
+
+.ui-timepicker-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-timepicker-duration {
+  margin-left: 5px;
+  color: $darkerGray;
+}
+
+.ui-timepicker-list:hover .ui-timepicker-duration {
+  color: $darkerGray;
+}
+
+.ui-timepicker-list li {
+  padding: $rhythm $rhythm * 2;
+  cursor: pointer;
+  white-space: nowrap;
+  color: $black;
+  margin: 0;
+}
+
+.ui-timepicker-list li:hover {
+  background: $blueHighlight;
+}
+
+li.ui-timepicker-selected {
+  background: $linkColor;
+  color: $white;
+  &:hover,
+  &:focus,
+  &:active {
+    background: $linkColor;
+    color: $white;
+  }
+}
+
+.ui-timepicker-list li:hover .ui-timepicker-duration {
+  color: $lightGray;
+}
+
+.ui-timepicker-list li.ui-timepicker-disabled,
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+  color: $darkerGray;
+  cursor: default;
+}
+
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+  background: $lighterGray;
+}
+
+// Datepicker
+
+.datepicker {
+  padding: $rhythm;
+  border-radius: $radius;
+  direction: ltr;
+}
+.datepicker-inline {
+  width: 220px;
+}
+.datepicker.datepicker-rtl {
+  direction: rtl;
+}
+.datepicker.datepicker-rtl table tr td span {
+  float: right;
+}
+.datepicker-dropdown {
+  top: 0;
+  left: 0;
+}
+
+.datepicker > div {
+  display: none;
+}
+
+.datepicker.days div.datepicker-days {
+  display: block;
+}
+
+.datepicker.months div.datepicker-months {
+  display: block;
+}
+
+.datepicker.years div.datepicker-years {
+  display: block;
+}
+
+.datepicker {
+  table {
+    margin: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  td,
+  th {
+    text-align: center;
+    width: $rhythm * 4;
+    height: $rhythm * 4;
+    border-radius: $radius;
+    border: none;
+    vertical-align: middle;
+    background-color: transparent;
+  }
+  .dow {
+    // Days of the week
+    font-size: $fontSmallest;
+  }
+  .day {
+    &:hover,
+    &.focused {
+      background-color: $blueHighlight;
+      cursor: pointer;
+    }
+  }
+  .old,
+  .new,
+  .disabled,
+  .disabled:hover {
+    color: $gray;
+  }
+  .disabled,
+  .disabled:hover {
+    cursor: default;
+  }
+  .today {
+    background: rgba($secondaryColor,0.3);
+    &:hover,
+    &:focus,
+    &:active {
+      background: rgba($secondaryColor,0.3);
+      fieldset[disabled] &,
+      .open & {
+        background: rgba($secondaryColor,0.3);
+      }
+      &[disabled],
+      &.disabled {
+        background-color: rgba($secondaryColor,0.3);
+        fieldset[disabled] &,
+        .open & {
+          background: rgba($secondaryColor,0.3);
+        }
+      }
+    }
+  }
+  .range {
+    background: $lighterGray;
+    border-radius: 0;
+    &:hover,
+    &.disabled,
+    &.disabled:hover {
+      background: $lighterGray;
+      border-radius: 0;
+    }
+    &.today {
+      color: $darkestGray;
+      background: $secondaryColor;
+      &:hover,
+      &:focus,
+      &:active {
+        background: $blueHighlight;
+        &.active,
+        &[disabled],
+        &.disabled,
+        .open & {
+          background: $blueHighlight;
+        }
+      }
+      &.disabled,
+      .open & {
+        color: $darkestGray;
+        background: $secondaryColor;
+      }
+    }
+  }
+  .selected {
+    &:hover,
+    &:focus,
+    &:active {
+      background: $lightGray;
+      color: $white;
+      .open &,
+      fieldset[disabled] & {
+        background: $lightGray;
+        color: $white;
+      }
+    }
+    &.disabled,
+    &[disabled],
+    &.active {
+      background: $lightGray;
+      color: $white;
+      .open &,
+      fieldset[disabled] & {
+        background: $lightGray;
+        color: $white;
+      }
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $lightGray;
+        color: $white;
+        .open &,
+        fieldset[disabled] & {
+          background: $lightGray;
+          color: $white;
+        }
+      }
+    }
+  }
+  .active {
+    background: $linkColor;
+    color: $white;
+    @include font_smoothing;
+    &[disabled],
+    &.disabled {
+      background-color: $linkColor;
+      color: $white;
+      fieldset[disabled] &,
+      .open & {
+        background: $linkColor;
+        color: $white;
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      background: $linkColor;
+      color: $white;
+      fieldset[disabled] &,
+      .open & {
+        background: $linkColor;
+        color: $white;
+      }
+      &[disabled],
+      &.disabled {
+        background-color: $linkColor;
+        color: $white;
+        fieldset[disabled] &,
+        .open & {
+          background: $linkColor;
+          color: $white;
+        }
+      }
+    }
+  }
+  span {
+    display: block;
+    width: 23%;
+    height: $rhythm * 7;
+    line-height: $rhythm * 7;
+    float: left;
+    margin: 1%;
+    cursor: pointer;
+    border-radius: $radius;
+    &:hover {
+      background: $blueHighlight;
+    }
+    &.disabled,
+    &.disabled:hover,
+    &.old,
+    &.new {
+      color: $darkerGray;
+      background: $lightestGray;
+    }
+  }
+}
+
+.datepicker th.datepicker-switch {
+  width: 145px;
+}
+.datepicker thead tr:first-child th,
+.datepicker tfoot tr th {
+  cursor: pointer;
+}
+.datepicker thead tr:first-child th:hover,
+.datepicker tfoot tr th:hover {
+  background: #eeeeee;
+}
+.datepicker .cw {
+  font-size: 10px;
+  width: 12px;
+  padding: 0 2px 0 5px;
+  vertical-align: middle;
+}
+.datepicker thead tr:first-child th.cw {
+  cursor: default;
+  background-color: transparent;
+}
+
+.datepicker.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 18rem;
+  list-style: none;
+  background-color: $white;
+  border: 1px solid $lightGray;
+  border-radius: $radius;
+  box-shadow: 0 1px 0 rgba(#000,0.06);
+  background-clip: padding-box;
+  color: $darkestGray;
+  font-size: $fontSmaller;
+  line-height: $lineHeight;
+}
+.datepicker.dropdown-menu th,
+.datepicker.datepicker-inline th,
+.datepicker.dropdown-menu td,
+.datepicker.datepicker-inline td {
+  padding: 0 ($rhythm / 2);
+}

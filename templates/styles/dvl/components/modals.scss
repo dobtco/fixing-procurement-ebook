@@ -1,0 +1,182 @@
+//
+// Modals
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+
+// Kill the scroll on the body
+.modal-open {
+  overflow: hidden;
+}
+
+// Container that the modal scrolls within
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z_modal;
+  -webkit-overflow-scrolling: touch;
+
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+  outline: 0;
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Shell div to position the modal with bottom padding
+.modal_dialog {
+  position: relative;
+  width: auto;
+  margin: $rhythm;
+}
+
+// Actual modal
+.modal_content {
+  position: relative;
+  background-color: $white;
+  border-radius: $radius;
+  background-clip: padding-box;
+  // Remove focus outline from opened modal
+  outline: 0;
+  box-shadow: 0 1px 3px rgba($black,0.5);
+  animation: modal_show 0.25s $easeOutSine;
+}
+
+@keyframes modal_show {
+  0% {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Modal background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba($black,0.5);
+  animation: fadeIn 170ms ease-in;
+  z-index: $z_modal - 1;
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.modal_header {
+  @include border_top_radius($radius);
+  background-color: $lightestGray;
+  position: relative;
+  padding: $rhythm $rhythm * 3;
+  h3 {
+    margin: 0;
+    color: $darkestGray;
+  }
+  .close {
+    float: right;
+    color: rgba($darkestGray,0.6);
+    text-decoration: none;
+    text-align: right;
+    font-size: $rhythm * 5;
+    width: $rhythm * 5;
+    line-height: $rhythm * 4;
+    font-family: $fontFamilyDisplay;
+    font-weight: $weightLight;
+    @include font_smoothing;
+    &:hover,
+    &:focus {
+      color: rgba($darkestGray,0.9);
+    }
+    &:focus {
+      outline: 0;
+    }
+    &:active {
+      color: $darkestGray;
+    }
+  }
+}
+
+.modal_confirm {
+  .modal_header {
+    background-color: $errorColor;
+    h3 {
+      color: $white;
+    }
+  }
+  .close {
+    color: rgba(#fff,0.8);
+    &:hover {
+      color: rgba(#fff,0.92);
+    }
+  }
+  .modal_body p {
+    margin-bottom: 0;
+  }
+}
+
+
+// Modal body
+// Where all modal content resides (sibling of .modal_header and .modal-footer)
+.modal_body {
+  position: relative;
+  padding: $lineHeight;
+
+  > .loading {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+// Footer (for actions)
+.modal_footer {
+  background-color: $lighterGray;
+  padding: $rhythm $rhythm * 3;
+  @include cf;
+  @include border_bottom_radius($radius);
+}
+
+.modal_footer_primary {
+  float: right;
+  .button, button {
+    margin-left: $rhythm;
+    float: left;
+  }
+}
+
+.modal_footer_secondary {
+  float: left;
+  font-size: $fontSmall;
+  line-height: $inputHeight;
+}
+
+// Measure scrollbar width for padding body during modal show/hide
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+// Scale up the modal
+@media screen and (min-width: 768px) {
+  .modal_dialog {
+    margin: 30px auto;
+    width: 42rem;
+  }
+}

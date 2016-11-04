@@ -1,0 +1,737 @@
+// Default form styles
+
+form {
+  margin: 0;
+}
+
+::placeholder {
+  color: $darkGray;
+}
+
+// 1. Address `margin` set differently in Firefox 4+, Safari 5, & Chrome
+// 2. Correct `font-size` not being inherited in all browsers
+// 3. Correct `font-family` not being inherited in all browsers
+
+button,
+input,
+select,
+textarea {
+  margin: 0; // 1
+  font-size: 1rem; // 2
+  font-family: inherit; // 3
+}
+
+// Address Firefox 4+ setting `line-height` on <input> using
+// `!important` in the UA stylesheet
+
+button,
+input {
+  line-height: normal;
+}
+
+// Fix inconsistent `text-transform` for <button> and <select>
+// All other form control elements do not inherit `text-transform`
+
+button,
+select {
+  text-transform: none;
+}
+
+// Hide clear button in IE
+
+input::-ms-clear {
+  display: none;
+}
+
+// 2. Improve usability and consistency of cursor style between
+//    image-type <input> and others
+// 3. Correct inability to style clickable <input> types in iOS
+
+button,
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer; // 2
+  -webkit-appearance: button; // 3
+}
+
+// Reset default `cursor` for disabled elements
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+// Remove default <fieldset> styles for all browsers
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+// Make most inputs, select boxes, and textareas as `block` elements
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  vertical-align: middle;
+  .error & {
+    border-color: $errorColor;
+  }
+  &:focus {
+    outline: 0;
+    border-color: $primaryColor;
+  }
+  &[readonly], &[disabled] {
+    border-color: $lighterGray;
+    color: $darkerGray;
+    @include font_smoothing;
+    background-color: $lightestGray;
+  }
+}
+
+input,
+textarea,
+.styled_select {
+  border: 1px solid $gray;
+  padding: $inputPadding;
+  border-radius: $radius;
+  color: $darkestGray;
+}
+
+label, legend {
+  color: $darkerGray;
+  @include font_smoothing;
+}
+
+// Style counter within number input
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+// Heights & sizes
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="url"],
+input[type="number"] {
+  height: $inputHeight;
+
+  &.large {
+    font-size: 1rem * $ratio;
+    height: $largeInputHeight;
+    padding: $largeInputPadding;
+    @include font_smoothing;
+  }
+
+  &.small {
+    height: $smallInputHeight;
+    font-size: $fontSmall;
+  }
+}
+
+textarea {
+  line-height: $lineHeight;
+
+  &.large {
+    padding: $inputPadding * $ratio;
+    font-size: 1rem * $ratio;
+    line-height: $rhythm * 5;
+    @include font_smoothing;
+  }
+}
+
+input[type="file"] {
+  padding: $inputPadding 0;
+  max-width: 100%;
+  background: transparent;
+}
+
+// Make checkbox, image, and radio inputs `inline-block` by default
+input[type="checkbox"],
+input[type="image"],
+input[type="radio"],
+input[type="file"] {
+  display: inline-block;
+  width: auto;
+  cursor: pointer;
+  border: 0;
+}
+
+// 1. Address `box-sizing` set to `content-box` in IE 8/9
+// 2. Remove excess padding in IE 8/9
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; // 1
+  margin: 0;
+  padding: 0; // 2
+}
+
+// 2. Address `appearance` set to `searchfield` in Safari 5 and Chrome
+
+input[type="search"] {
+  -webkit-appearance: textfield; // 2
+}
+
+// Remove decoration & cancel button in Safari 5 and Chrome on OS X
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Make button, reset, and submit inputs to be `inline-block`, unless
+// otherwise specified by `.button` classes
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  display: inline-block;
+  width: auto;
+}
+
+// Remove inner padding and border in Firefox 4+
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+// Give labels a pointer cursor by default
+
+label {
+  cursor: pointer;
+}
+
+
+// 1. Remove default vertical scrollbar in IE 8/9
+// 2. Improve readability and alignment in all browsers
+// 3. Restrict <textarea> elements to vertical resizing only
+
+textarea {
+  overflow: auto; // 1
+  vertical-align: top; // 2
+  resize: vertical; // 3
+}
+
+label,
+legend {
+  &.required > abbr {
+    color: $errorColor;
+    font-size: $fontSmaller;
+    position: relative;
+    top: -0.25rem;
+  }
+}
+
+select.datetime {
+  width: auto;
+  display: inline;
+}
+
+// Checkbox and radio inputs
+
+.control_styled {
+  width: $rhythm * 3;
+  height: $rhythm * 3;
+  display: inline-block;
+  font-size: 1rem;
+  border: 1px solid $darkGray;
+  position: absolute;
+  top: $rhythm / 2;
+  left: 0;
+  user-select: none;
+  background: #fff;
+  &:after {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+  }
+}
+
+label.control {
+  display: block;
+  color: $darkestGray;
+  @include font_smoothing(off);
+  position: relative;
+  padding: $rhythm / 2 0;
+  padding-left: $rhythm * 5;
+  input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &:focus + .control_styled {
+      border-color: $primaryColor;
+    }
+    &:hover + .control_styled {
+      background: $lightestGray;
+    }
+    &:active + .control_styled {
+      background: darken($lightestGray,3%);
+    }
+    &:checked + .control_styled:after {
+      opacity: 1;
+      transform: scale(1) translateZ(0);
+    }
+    &[readonly],
+    &[disabled] {
+      + .control_styled {
+        opacity: 0.6;
+        background: $lighterGray;
+      }
+      &:active + .control_styled {
+        background: $lighterGray;
+      }
+    }
+  }
+  &.small {
+    font-size: $fontSmall;
+    line-height: $lineHeight;
+  }
+}
+
+
+input[type="checkbox"] {
+  + .control_styled {
+    border-radius: $radius;
+    &:after {
+      position: absolute;
+      line-height: 1;
+      @include topCenter (($rhythm * 3), 1rem);
+      left: 0;
+      font-family: 'FontAwesome';
+      content: "\f00c";
+      color: $primaryColor;
+      width: ($rhythm * 3) - 0.125rem; // Subtracting widths of border
+      text-align: center;
+      display: inline-block;
+      opacity: 0;
+      transform: scale(0.5) translateZ(0);
+      transition: opacity 70ms $easeInOutBack, transform 120ms $easeInOutBack;
+    }
+  }
+  &.readonly,
+  &.disabled {
+    + .control_styled:after {
+      color: $darkGray;
+    }
+  }
+}
+
+input[type="radio"] {
+  + .control_styled {
+    border-radius: 50%;
+    &:after {
+      content: "";
+      background: $primaryColor;
+      width: $rhythm * 1.5; // Half the width of the button
+      height: $rhythm * 1.5; // Half the width of the button
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: ($rhythm * -0.75) 0 0 ($rhythm * -0.75); // Center within the input
+      opacity: 0;
+      transform: scale(0.75) translateZ(0);
+      transition: opacity 70ms $easeInOutBack, transform 170ms $easeInOutBack;
+    }
+  }
+  &.readonly,
+  &.disabled {
+    + .control_styled:after {
+      background: $darkGray;
+    }
+  }
+}
+
+.control_minus {
+  input[type=checkbox] {
+    + .control_styled:after {
+      content: "\f068";
+      line-height: 1;
+      top: 4px; // alignment
+    }
+  }
+}
+
+.input_group_date {
+  width: $rhythm * 20;
+}
+
+.input_group_time {
+  width: $rhythm * 16;
+}
+
+.datetime_input_wrapper {
+  min-width: 100%;
+
+  .input_group_date,
+  .input_group_time {
+    float: left;
+  }
+
+  @media screen and (min-width: $lapWidth) {
+    min-width: inherit;
+  }
+
+  // Margin between date & time input
+  .input_group_date {
+    margin-right: $rhythm * 2;
+    margin-bottom: $rhythm;
+    @media screen and (min-width: $lapWidth) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.datetime_input_clear_wrapper {
+  clear: both;
+  height: $fontSmall * $unitlessLineHeight; // preserve height when clear button is hidden
+}
+
+.datetime_input_clear {
+  font-size: $fontSmaller;
+}
+
+form {
+  .grid {
+    margin-bottom: $rhythm * 2;
+  }
+}
+
+// Form layouts
+
+.form_item {
+  margin-bottom: $rhythm * 2;
+}
+
+.form_item_horiz_label {
+  margin: $rhythm 0;
+  @media screen and (min-width: $lapWidth) {
+    margin-bottom: 0;
+
+    // Reset default styles on legends. Really hard to do!
+    > legend {
+      display: inline-block;
+      text-align: right;
+      float: right;
+    }
+  }
+  .radio_buttons &,
+  .boolean &,
+  .check_boxes & {
+    margin-top: $rhythm / 2; // Vertically centering with .control_styled
+  }
+}
+
+.form_item_vert_label {
+  margin-bottom: $rhythm;
+}
+
+.input_sub_parent {
+  font-weight: $weightBold;
+  color: $darkerGray;
+  margin-bottom: $rhythm;
+  @include font_smoothing;
+}
+
+.input_sub {
+  font-size: $fontSmall;
+  margin-left: $rhythm * 5;
+}
+
+@media only screen and (min-width: $lapWidth) {
+  .form_item_horiz_label,
+  .form_item_horiz_input {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .form_item_horiz_label {
+    text-align: right;
+    width: 25%;
+    padding-right: $rhythm * 4;
+  }
+
+  .form_item_horiz_input {
+    width: 75%;
+  }
+
+  .form_actions.horizontal {
+    padding-left: 24.99999%;
+  }
+}
+
+.form_error {
+  font-size: $fontSmall;
+  background-color: $errorColor;
+  color: $white;
+  padding: ($rhythm / 2) ($rhythm * 1.5);
+  @include font_smoothing;
+  font-weight: $weightBold;
+  border-radius: $radius;
+  display: inline-block;
+  margin-top: $rhythm;
+}
+
+.form_hint {
+  font-size: $fontSmaller;
+  margin: $rhythm 0;
+  font-style: italic;
+  color: $darkerGray;
+  @include font_smoothing;
+  max-width: 30rem;
+  .control + & {
+    margin: 0 0 ($rhythm * 2) ($rhythm * 5);
+  }
+}
+
+// Input groups
+
+.input_group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+
+.input_group_input,
+.input_group_append {
+  display: table-cell;
+}
+
+// Remove corner radius for elements not on the edge of .input_groups
+
+.input_group_input input {
+  @include border_right_radius(0);
+}
+
+.input_group_append .button,
+.input_group_append .button:hover {
+  @include border_left_radius(0);
+  border-left-width: 0;
+
+  .input_group_disabled & {
+    border-left-width: 1px;
+  }
+}
+
+// Restore border radius if no buttons are adjacent
+
+.input_group_text input {
+  border-radius: $radius;
+  border-width: 1px;
+}
+
+.input_group_input {
+  width: 100%;
+  input {
+    width: 100%;
+  }
+}
+
+.input_group_append {
+  width: 1%;
+  display: table-cell;
+  vertical-align: top;
+  .button {
+    vertical-align: top;
+    height: $inputHeight;
+    line-height: $inputHeight - $rhythm;
+    .input_group_small & {
+      height: $smallInputHeight;
+      line-height: $smallInputHeight - $rhythm;
+    }
+  }
+  span {
+    display: inline-table;
+    margin: 0;
+    width: 100%;
+    color: $darkerGray;
+    text-align: center;
+    line-height: $inputHeight;
+    @include ellipses;
+  }
+}
+
+.input_group_append {
+  span {
+    padding-left: $rhythm;
+  }
+}
+
+form {
+  // Autosubmitter
+  .item {
+    position: relative;
+  }
+}
+
+.styled_select_wrapper {
+  height: $inputHeight;
+  width: 100%;
+  @media screen and (min-width: 25rem) {
+    width: 20rem; // 272px
+  }
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+
+  &.auto {
+    width: auto;
+  }
+  &.full {
+    width: 100%;
+  }
+  &.large {
+    height: $largeInputHeight;
+    font-size: $fontSizeH3;
+    select {
+      height: $largeInputHeight;
+      min-height: $largeInputHeight;
+    }
+    .styled_select {
+      height: $largeInputHeight;
+      padding: 0 $largeInputHeight 0 $largeInputPadding;
+      line-height: $largeInputHeight;
+      &:after {
+        line-height: 1rem;
+        @include topCenter($largeInputHeight, 1rem);
+        right: $largeInputPadding;
+      }
+    }
+  }
+  &.small {
+    height: $smallInputHeight;
+    font-size: $fontSmall;
+    select {
+      height: $smallInputHeight;
+      min-height: $smallInputHeight;
+    }
+    .styled_select {
+      height: $smallInputHeight;
+      line-height: $smallInputHeight;
+      &:after {
+        @include topCenter($smallInputHeight, 0.9rem);
+      }
+    }
+  }
+  select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $inputHeight;
+    min-height: $inputHeight;
+    opacity: 0;
+    z-index: 2;
+    .error & + div {
+      border-color: $errorColor;
+    }
+    &:focus + div {
+      border-color: $primaryColor;
+      &:after {
+        color: $primaryColor;
+      }
+    }
+    &:hover + div {
+      background: $lightestGray;
+    }
+    &:active + div {
+      background: darken($lightestGray,3%);
+    }
+    &[readonly],
+    &[disabled] {
+      + div {
+        background: $lightestGray;
+        border-color: $lighterGray;
+        &:after {
+          color: #888;
+        }
+        &.is_blank {
+          color: #888;
+        }
+      }
+      &:active + div {
+        background: $lightestGray;
+        color: #888;
+      }
+    }
+  }
+  &:hover .styled_select {
+    background: $lightestGray;
+  }
+  &:active .styled_select,
+  &.open .styled_select {
+    background: darken($lightestGray,3%);
+  }
+}
+
+.styled_select {
+  display: block;
+  height: $inputHeight;
+  background: $white;
+  border-color: $darkGray;
+  @include ellipses;
+  padding: 0 $inputHeight 0 $inputPadding;
+  line-height: $inputHeight;
+  color: $darkestGray;
+  font-weight: $weightNormal;
+  @include font_smoothing;
+  &:after {
+    font-family: 'FontAwesome';
+    content: '\f0d7';
+    line-height: 1;
+    position: absolute;
+    @include topCenter($inputHeight, 1rem);
+    right: 0;
+    width: $inputHeight;
+    text-align: center;
+    color: $darkerGray;
+  }
+  &.is_blank {
+    @include lightestText;
+  }
+}
+
+a.styled_select {
+  text-decoration: none;
+}
+
+.styled_select {
+  cursor: default;
+
+  + .dropdown_menu a {
+    cursor: default;
+  }
+
+  &:focus {
+    outline: 0;
+    border-color: $primaryColor;
+  }
+}
+
+// When replacing an input with text
+.input_text {
+  display: inline-block;
+  margin-top: $rhythm;
+}
+
+.microcopy {
+  background: $lighterGray;
+  padding: $rhythm * 2;
+  border-radius: $radius;
+  max-width: 22rem;
+  font-size: $fontSmaller;
+  @include font_smoothing;
+  margin-bottom: $lineHeight;
+  p {
+    margin-bottom: $rhythm * 2;
+  }
+}

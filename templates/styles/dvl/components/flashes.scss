@@ -1,0 +1,150 @@
+@import 'dvl/core/includes';
+
+@keyframes flashIn {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+.flash {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: $z_flash;
+  opacity: 0;
+  @include font_smoothing;
+  transition: opacity 0.15s ease-out;
+  background: $primaryColor;
+  color: $primaryColorText;
+  transform-origin: 100% 0;
+  font-size: $fontSmall;
+  box-shadow: 0 1px 0 rgba(#000,0.06);
+  animation: flashIn 0.2s ease-out;
+  width: 100%;
+  @media screen and (min-width: 25rem) {
+    width: 22rem;
+    border-radius: $radius;
+    left: auto;
+    right: $rhythm * 2;
+    bottom: $rhythm * 2;
+  }
+  span {
+    display: inline-block;
+    width: 100%;
+    padding-top: $rhythm * 2;
+    padding-bottom: $rhythm * 2;
+    position: relative;
+    &:before {
+      font-family: 'FontAwesome';
+      content: '\f05a';
+      color: $white;
+      opacity: 0.7;
+      position: absolute;
+      left: $rhythm * 3;
+      top: $rhythm * 2;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    a {
+      color: $white;
+      text-decoration: underline;
+      &:hover {
+        opacity: 0.95;
+      }
+      &:focus {
+        opacity: 0.8;
+      }
+      &:active {
+        opacity: 0.75;
+      }
+    }
+  }
+  &.is_visible {
+    opacity: 1;
+  }
+  &.is_hiding {
+    transition: all 0.15s ease-out;
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  .flash_close {
+    font-size: 2rem;
+    position: absolute;
+    line-height: 1;
+    text-decoration: none;
+    right: $rhythm * 2;
+    top: $rhythm;
+    color: $white;
+    opacity: 0.7;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+.flash span,
+.flash_links {
+  padding-right: $rhythm * 10;
+  padding-left: $rhythm * 8;
+}
+
+.flash_links {
+  background: rgba(#000,0.2);
+  padding-top: $rhythm / 2;
+  padding-bottom: $rhythm / 2;
+  a {
+    font-size: $fontSmall;
+    text-transform: uppercase;
+    letter-spacing: $letterspaceSmall;
+    opacity: 0.8;
+    display: inline-block;
+    color: $white;
+    &:hover,
+    &:focus {
+      opacity: 0.85;
+    }
+    &:active {
+      opacity: 1;
+    }
+    + a {
+      margin-left: $rhythm * 2;
+    }
+  }
+}
+
+// Colors
+
+.flash_error {
+  background-color: $errorColor;
+  color: $errorColorText;
+  span:before {
+    content: '\f06a';
+  }
+  span:before,
+  a,
+  span a,
+  .flash_close {
+    color: $errorColorText;
+  }
+}
+
+.flash_success {
+  background-color: $successColor;
+  color: $successColorText;
+  span:before {
+    content: '\f058';
+  }
+  span:before,
+  a,
+  span a,
+  .flash_close {
+    color: $successColorText;
+  }
+}

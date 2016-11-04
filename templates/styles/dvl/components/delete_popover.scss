@@ -1,0 +1,17 @@
+.popover_delete_confirmation {
+  .button {
+    display: block;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    &:first-of-type {
+      margin-bottom: $rhythm / 2;
+    }
+  }
+}
+
+.popover_delete_confirmation_message {
+  font-size: $fontSmall;
+  text-align: center;
+  margin-bottom: $rhythm;
+}

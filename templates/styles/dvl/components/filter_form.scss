@@ -1,0 +1,61 @@
+.filter_form {
+  button {
+    @include button_color($lightestGray,$darkestGray);
+    border-left-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: $letterspaceSmall;
+    &:hover {
+      border-left: 0;
+    }
+  }
+  .input_group_input {
+    position: relative;
+    input {
+      padding-left: 1.75rem;
+    }
+    .fa-search,
+    .fa-times-circle {
+      position: absolute;
+      line-height: 1;
+      @include topCenter($inputHeight, 1rem);
+      color: $darkGray;
+    }
+    .fa-search {
+      width: 1.75rem;
+      text-align: center;
+      left: 0;
+    }
+    .fa-times-circle {
+      display: none;
+      right: 7px;
+      text-decoration: none;
+      &:hover {
+        color: $darkerGray;
+      }
+    }
+  }
+  &.with_query {
+    input {
+      padding-right: 1.75rem;
+    }
+    .fa-times-circle {
+      display: inline;
+    }
+  }
+  &.without_button {
+    width: 100%;
+    .input_group_input {
+      display: block;
+      width: 100%;
+      border-radius: $radius;
+    }
+    input {
+      width: 100%;
+      @include border_right_radius($radius);
+    }
+    // Hide the search button if it exists
+    .input_group_append {
+      display: none;
+    }
+  }
+}

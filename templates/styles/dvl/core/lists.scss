@@ -1,0 +1,63 @@
+// Default and prose list styles
+
+@mixin formatted_list_ul {
+  margin-bottom: $rhythm * 2;
+  li {
+    position: relative;
+    margin: 0 0 $rhythm ($rhythm * 3);
+    &:before {
+      position: absolute;
+      top: $rhythm;
+      left: $rhythm * -3;
+      right: 100%;
+      content: '';
+      width: $rhythm;
+      height: $rhythm;
+      border: 1px solid $darkestGray;
+      border-radius: 50%;
+    }
+  }
+}
+
+@mixin formatted_list_ol {
+  margin-bottom: $rhythm * 2;
+  counter-reset: list;
+  li {
+    position: relative;
+    counter-increment: list;
+    margin: 0 0 $rhythm ($rhythm * 4);
+    &:before {
+      position: absolute;
+      content: counter(list) '.';
+      top: 0;
+      color: $darkestGray;
+      color: rgba($darkestGray,0.8);
+      left: $rhythm * -4;
+      text-align: left;
+    }
+  }
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.formatted_list {
+  @include formatted_list_ul;
+}
+
+ol.formatted_list {
+  @include formatted_list_ol;
+}
+
+.rendered_from_wysiwyg,
+.redactor_wysiwyg {
+  ul {
+    @include formatted_list_ul;
+  }
+  ol {
+    @include formatted_list_ol;
+  }
+}

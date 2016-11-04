@@ -1,0 +1,62 @@
+// "Project not yet posted" alert message.
+
+.alert {
+  background-color: $lightestGray;
+  padding: $rhythm * 2;
+  margin-bottom: $lineHeight;
+  border: 1px solid $lightGray;
+  border-radius: $radius;
+  .styled_select_wrapper,
+  .button {
+    margin-right: $rhythm;
+  }
+  .styled_select_wrapper {
+    + button {
+      margin-top: $rhythm;
+      display: block;
+      @media screen and (min-width: $lapWidth) {
+        margin-top: 0;
+        display: inline-block;
+      }
+    }
+  }
+  .button:last-child {
+    margin-right: 0;
+  }
+  a {
+    display: inline-table;
+  }
+}
+
+.alert_message,
+.alert_buttons {
+  display: block;
+}
+
+.alert_message {
+  margin-bottom: $rhythm;
+}
+
+@media screen and (min-width: $lapWidth) {
+  .alert {
+    display: table;
+    width: 100%;
+    padding: $rhythm $rhythm $rhythm ($rhythm * 2);
+    line-height: $lineHeight;
+    span,
+    form {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .alert_message {
+    width: 100%;
+    margin-bottom: 0;
+    padding-right: $rhythm * 2;
+  }
+  .alert_buttons,
+  .alert form {
+    width: 1%;
+    white-space: nowrap;
+  }
+}

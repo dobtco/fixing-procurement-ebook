@@ -1,0 +1,75 @@
+// Tables
+
+// Borderless
+
+table {
+  max-width: 100%;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  empty-cells: show;
+  word-break: break-word;
+  // Avoid single-line inputs wrapping to multiple lines
+  input {
+    word-break: normal;
+  }
+}
+
+th,
+tfoot td {
+  color: $black;
+  text-align: left;
+  font-weight: $weightNormal;
+}
+
+thead th {
+  color: $darkestGray;
+  font-size: $fontSmaller;
+  letter-spacing: $letterspaceSmaller;
+  text-transform: uppercase;
+  word-break: normal;
+  .control_styled {
+    font-size: 1rem;
+  }
+}
+
+th,
+td {
+  overflow: visible;
+  vertical-align: top;
+  border-bottom: 1px solid;
+  .condensed & {
+    padding: $rhythm;
+  }
+  .vertical_middle & {
+    vertical-align: middle;
+  }
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+th {
+  padding: $rhythm $rhythm * 2;
+  border-color: $darkGray;
+}
+
+td {
+  padding: $rhythm * 2;
+  border-color: $lightGray;
+}
+
+th.sortable a {
+  color: $darkestGray;
+  i {
+    color: $darkerGray;
+    margin-left: 0.25rem;
+    font-size: 1rem;
+  }
+    &:hover {
+    text-decoration: none;
+  }
+}

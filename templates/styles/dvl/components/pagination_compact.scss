@@ -1,0 +1,75 @@
+$paginationCompactHeight: $rhythm * 5;
+
+.pagination_compact {
+  @include cf;
+  > span,
+  > ul {
+    float: left;
+  }
+  > span {
+    text-transform: uppercase;
+    font-size: $fontSmaller;
+    letter-spacing: $letterspaceSmaller;
+    line-height: $paginationCompactHeight;
+  }
+  li a {
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+    &:hover,
+    &:focus {
+      background: $lighterGray;
+    }
+    &:active {
+      border-color: $gray;
+      background: $lightGray;
+    }
+  }
+  ul {
+    margin-left: $rhythm * 2;
+    @include cf;
+    float: left;
+    width: $paginationCompactHeight * 2;
+    a,
+    span {
+      margin: 0;
+      background: $lightestGray;
+      border: 1px solid $lightGray;
+      float: left;
+      width: $paginationCompactHeight;
+      text-align: center;
+      display: block;
+      line-height: $paginationCompactHeight;
+    }
+  }
+  li {
+    &:first-child {
+      a,
+      span {
+        border-right: 0;
+        @include border_left_radius($radius);
+        @include border_right_radius(0);
+      }
+    }
+    &:last-child {
+      a,
+      span {
+        @include border_right_radius($radius);
+        @include border_left_radius(0);
+      }
+    }
+  }
+}
+
+// A modifier for when pagination is inside of the page header
+.pagination_compact_header {
+  clear: both;
+  padding-top: $rhythm;
+  @media only screen and (min-width: $lapWidth) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+  }
+}

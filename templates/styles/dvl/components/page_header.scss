@@ -1,0 +1,245 @@
+.page_header {
+  @include cf();
+  border-bottom: 1px solid $lightGray;
+  margin-bottom: $lineHeight;
+  position: relative;
+  h2 {
+    float: left;
+    max-width: 100%;
+    margin-right: $rhythm * 4;
+    margin-bottom: $rhythm;
+    position: relative;
+    > a {
+      color: $black;
+    }
+    a {
+      text-decoration: none;
+    }
+    img {
+      max-height: $fontLineHeightH2Mobile;
+      max-width: $fontLineHeightH2Mobile;
+      @media screen and (min-width: $lapWidth) {
+        max-height: $fontLineHeightH2;
+        max-width: $fontLineHeightH2;
+      }
+      margin-right: $rhythm;
+      float: left;
+    }
+    .button {
+      font-size: 1rem;
+      margin-left: $rhythm * 2;
+      vertical-align: middle;
+    }
+  }
+  .pagination_compact {
+    margin-bottom: $rhythm;
+  }
+
+  > .button,
+  > form .button,
+  > .button_uppercase {
+    float: left;
+    clear: left;
+    @media screen and (min-width: $lapWidth) {
+      float: right;
+      clear: none;
+      position: relative;
+      @include topCenter($fontLineHeightH2, $inputHeight);
+      &.small {
+        @include topCenter($fontLineHeightH2, ($rhythm * 4));
+      }
+      &.mini {
+         @include topCenter($fontLineHeightH2, ($rhythm * 3));
+      }
+    }
+  }
+
+  > .button,
+  > form .button {
+    margin: $rhythm 0;
+    @media screen and (min-width: $lapWidth) {
+      margin: 0;
+    }
+  }
+
+  > .button_uppercase {
+    margin-bottom: $rhythm;
+    @media screen and (min-width: $lapWidth) {
+      margin: ($rhythm * 1.5) 0;
+    }
+  }
+
+  // Modifiers
+
+  &.with_back_arrow {
+    margin-top: $rhythm;
+    padding-left: $rhythm * 5;
+    &.with_no_context {
+      margin-top: 0;
+    }
+    .page_header_context {
+      width: 100%;
+    }
+    h2 {
+      position: relative;
+    }
+    > .button,
+    > form .button {
+      @include topCenter(($fontLineHeightH2 + $rhythm * 1.5), $inputHeight);
+      &.small {
+        @include topCenter(($fontLineHeightH2 + $rhythm * 1.5), ($rhythm * 4));
+      }
+      &.mini {
+         @include topCenter(($fontLineHeightH2 + $rhythm * 1.5), ($rhythm * 3));
+      }
+    }
+  }
+}
+
+.page_header_context {
+  width: 100%;
+  position: relative;
+  top: $fontSmall * 0.75;
+  left: $fontOpticalMarginH2 * -1;
+  margin-bottom: $rhythm * 0.5;
+  a,
+  span {
+    color: $darkerGray;
+    font-size: $fontSmall;
+    text-transform: uppercase;
+    font-family: $fontFamilyDefault;
+    font-weight: $weightNormal;
+    letter-spacing: $letterspaceSmall;
+    display: inline-block;
+    position: relative;
+    + a,
+    + span {
+      margin-left: $rhythm * 2;
+      &:before {
+        font-family: 'FontAwesome';
+        content: '\f0da';
+        position: absolute;
+        color: $darkGray;
+        top: 0;
+        left: $rhythm * -2;
+        width: $rhythm * 2;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.page_header_back_arrow {
+  font-size: 1.75rem;
+  position: absolute;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  line-height: 1;
+  @include topCenter($fontLineHeightH2Mobile + ($rhythm * 5) + ($fontSmall * $unitlessLineHeight), 1.75rem);
+  @media screen and (min-width: $lapWidth) {
+    top: $rhythm * 5.5;
+  }
+}
+
+// Secondary and tertiary navigation, within page headers.
+
+.page_header_secondary,
+.page_header_tertiary {
+  ul {
+    margin-top: $rhythm * 0.5;
+    line-height: $lineHeight;
+    a,
+    li > span {
+      padding-bottom: $rhythm * 1.5;
+      display: inline-block;
+    }
+    a {
+      @media screen and (min-width: $lapWidth) {
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: none;
+          box-shadow: 0 1px 0 $linkSelectedColor;
+        }
+      }
+      &:hover,
+      &:focus {
+        color: rgba($linkSelectedColor,0.7);
+      }
+      &:active {
+        color: $linkSelectedColor;
+      }
+    }
+    li {
+      display: inline;
+      @include font_smoothing;
+      > span {
+        color: $darkestGray;
+      }
+      &.active a {
+        color: $linkSelectedColor;
+        @media screen and (min-width: $lapWidth) {
+          box-shadow: 0 1px 0 $linkSelectedColor;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.page_header_secondary {
+  float: left;
+  clear: left;
+  ul {
+    float: left;
+  }
+  li {
+    float: left;
+    margin-right: $rhythm * 3;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.page_header_tertiary {
+  float: left;
+  clear: left;
+  ul,
+  .button {
+    float: left;
+  }
+  ul {
+    font-size: $fontSmall;
+  }
+  .button {
+    margin-top: $rhythm / 2;
+    margin-left: $rhythm * 3;
+  }
+  li {
+    margin-left: $rhythm * 3;
+    &:first-child {
+      margin-left: 0;
+    }
+    a {
+      color: $darkerGray;
+      // Add a space in between icon & text
+      > i {
+        margin-right: 0.25rem;
+      }
+    }
+    &.active a {
+      color: $bodyFontColor;
+    }
+  }
+  @media screen and (min-width: $lapWidth) {
+    float: right;
+    clear: none;
+  }
+}

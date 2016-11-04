@@ -1,0 +1,166 @@
+html {
+  font-size: $maxFontSize;
+}
+
+// 1. Remove default `margin`
+// 2. Inherits percentage declared on above <html> as root `font-size`
+
+body {
+  margin: 0; // 1
+  background: $bodyBackgroundColor;
+  color: $bodyFontColor;
+  font-size: 1rem; // 2
+  font-family: $fontFamilyDefault;
+  font-weight: $weightNormal;
+  line-height: $unitlessLineHeight;
+}
+
+// Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome
+
+b,
+strong {
+  font-weight: $weightBold;
+  color: $black;
+}
+
+blockquote,
+dl,
+figure,
+hr,
+menu,
+ol,
+p,
+pre,
+summary,
+table,
+ul {
+  margin: 0 0 $lineHeight;
+}
+
+dt {
+  color: $darkerGray;
+  @include font_smoothing;
+  font-size: $fontSmaller;
+  font-weight: $weightBold;
+}
+
+dd {
+  margin: 0 0 $lineHeight;
+}
+
+em,
+i,
+cite {
+  font-style: italic;
+}
+
+// NOTE: Use `text-rendering` with caution - http://cbrac.co/SJt8p1
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  color: $black;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 $lineHeight;
+}
+
+h1, h2, h3, h4 {
+  @include font_smoothing;
+}
+
+h1 {
+  @include fontH1;
+}
+
+h2 {
+  @include fontH2;
+}
+
+h3 {
+  @include fontH3;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: $weightBold;
+  line-height: $lineHeight;
+}
+
+h5 {
+  font-weight: $weightNormal;
+  text-transform: uppercase;
+  font-size: $fontSmaller; // 13px
+  line-height: $lineHeight; // 20px
+  letter-spacing: $letterspaceSmaller;
+  margin: 0 0 $rhythm;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  border: 0;
+  border-bottom: 1px solid $gray;
+}
+
+blockquote {
+  border-left: ($rhythm / 2) solid $lighterGray;
+  padding-left: $rhythm * 2.5;
+  font-style: italic;
+  color: $darkerGray;
+}
+
+@mixin formatted_figcaption {
+  font-style: italic;
+  font-size: $fontSmall;
+  color: $darkerGray;
+  margin-top: $rhythm;
+}
+
+figcaption.formatted {
+  @include formatted_figcaption();
+}
+
+del {
+  text-decoration: line-through;
+  .cssgradients & {
+    text-decoration: none;
+    background-image: linear-gradient($bodyBackgroundColor, $bodyBackgroundColor), linear-gradient($bodyBackgroundColor, $bodyBackgroundColor), linear-gradient(rgba($bodyFontColor,0.6), rgba($bodyFontColor,0.6));
+    background-size: .05em 2px, .05em 2px, 2px 2px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-position: 0% 60%, 100% 60%, 0% 60%;
+  }
+}
+
+// 1. Address inconsistent and variable `font-size` in all browsers
+small {
+  display: inline-block;
+  font-size: $fontSmaller;
+  line-height: $lineHeight;
+}
+
+// Prevent <sub> and <sup> affecting `line-height` in all browsers
+
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline;
+  font-size: $fontSmallest;
+  line-height: 0;
+}
+
+sup {
+  top: -0.3125rem;
+}
+
+sub {
+  bottom: -0.1875rem;
+}

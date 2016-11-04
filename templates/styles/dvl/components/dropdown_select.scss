@@ -1,0 +1,40 @@
+.dropdown_menu_rich {
+  width: 100%;
+  @media screen and (min-width: 25rem) {
+    min-width: 22rem;
+  }
+  li {
+    a {
+      white-space: normal;
+      padding: $rhythm $lineHeight;
+      margin: 0;
+      height: auto;
+    }
+  }
+}
+
+.drop_rich_head,
+.drop_rich_subhead {
+  @include word_break;
+  display: block;
+}
+
+.drop_rich_head {
+  color: $black;
+  font-weight: $weightNormal;
+  .blank a & {
+    @include lightestText;
+  }
+  .active a & {
+    color: $white;
+  }
+}
+
+.drop_rich_subhead {
+  color: $darkerGray;
+  line-height: $unitlessLineHeight;
+  font-size: $fontSmaller;
+  .active a & {
+    color: $white;
+  }
+}

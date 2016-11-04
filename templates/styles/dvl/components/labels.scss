@@ -1,0 +1,32 @@
+// Both custom labels, in the repsonse UI, and tags next to items (like "New" or "Existing" fields in imports.)
+
+// #todo separate these into two different patterns
+
+.label {
+  display: inline-block;
+  padding: 0.1rem $rhythm;
+  border-radius: $radius;
+  font-size: $fontSmaller;
+  background-color: $lighterGray;
+  color: $darkestGray;
+}
+
+.label_error {
+  background-color: $errorColor;
+  color: $errorColorText;
+}
+
+.label_success {
+  background-color: $successColor;
+  color: $successColorText;
+}
+
+.label_info {
+  background-color: $primaryColor;
+  color: $primaryColorText;
+}
+
+.label_warning {
+  background-color: $warningColor;
+  color: $warningColorText;
+}
